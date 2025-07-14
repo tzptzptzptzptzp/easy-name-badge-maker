@@ -5,6 +5,7 @@ import { PreviewIcon } from "./Icon";
 import { PreviewName } from "./Name";
 import Image from "next/image";
 import { PreviewActivity } from "./Activity";
+import { PreviewComment } from "./Comment";
 
 export const Preview = () => {
   const { scaledFrameSize } = useConfig();
@@ -19,6 +20,7 @@ export const Preview = () => {
         <PreviewIcon />
         <PreviewName />
         <PreviewActivity />
+        <PreviewComment />
       </div>
       <div className="absolute inset-0 select-none pointer-events-none opacity-30">
         <Image
