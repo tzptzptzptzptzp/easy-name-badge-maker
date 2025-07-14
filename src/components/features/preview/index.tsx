@@ -1,17 +1,20 @@
 "use client";
 import { useConfig } from "@/hooks/useConfig";
 import { PreviewHeader } from "./Header";
+import { PreviewIcon } from "./Icon";
 
 export const Preview = () => {
   const { scaledFrameSize } = useConfig();
 
   return (
     <div
-      className="border bg-[var(--theme-background-color)]"
+      className="bg-[var(--theme-background-color)] shadow-xl"
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <PreviewHeader />
-      Preview
+      <div className="relative">
+        <PreviewIcon />
+      </div>
     </div>
   );
 };
