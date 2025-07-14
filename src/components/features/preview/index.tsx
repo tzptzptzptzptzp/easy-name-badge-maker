@@ -2,18 +2,30 @@
 import { useConfig } from "@/hooks/useConfig";
 import { PreviewHeader } from "./Header";
 import { PreviewIcon } from "./Icon";
+import { PreviewName } from "./Name";
+import Image from "next/image";
 
 export const Preview = () => {
   const { scaledFrameSize } = useConfig();
 
   return (
     <div
-      className="bg-[var(--theme-background-color)] shadow-xl"
+      className="relative bg-[var(--theme-background-color)] shadow-xl"
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <PreviewHeader />
       <div className="relative">
         <PreviewIcon />
+        <PreviewName />
+      </div>
+      <div className="absolute inset-0 select-none pointer-events-none opacity-30">
+        <Image
+          src={`/images/sample.png`}
+          alt="リベシティ"
+          width={1200}
+          height={1200}
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
   );
