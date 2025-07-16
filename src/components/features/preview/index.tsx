@@ -6,13 +6,14 @@ import { PreviewName } from "./Name";
 import Image from "next/image";
 import { PreviewActivity } from "./Activity";
 import { PreviewComment } from "./Comment";
+import { PreviewMakerLogo } from "./MakerLogo";
 
 export const Preview = () => {
   const { scaledFrameSize } = useConfig();
 
   return (
     <div
-      className="relative bg-[var(--theme-background-color)] shadow-xl"
+      className="relative bg-[var(--theme-background-color)] text-[var(--theme-font-color)] shadow-xl"
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <PreviewHeader />
@@ -21,6 +22,7 @@ export const Preview = () => {
         <PreviewName />
         <PreviewActivity />
         <PreviewComment />
+        <PreviewMakerLogo />
       </div>
       <div className="absolute inset-0 select-none pointer-events-none opacity-30">
         <Image
