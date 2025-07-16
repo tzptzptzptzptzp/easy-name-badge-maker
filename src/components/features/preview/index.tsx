@@ -7,6 +7,7 @@ import Image from "next/image";
 import { PreviewActivity } from "./Activity";
 import { PreviewComment } from "./Comment";
 import { PreviewMakerLogo } from "./MakerLogo";
+import { PreviewQRCode } from "./QRCode";
 
 export const Preview = () => {
   const { scaledFrameSize } = useConfig();
@@ -23,6 +24,7 @@ export const Preview = () => {
         <PreviewActivity />
         <PreviewComment />
         <PreviewMakerLogo />
+        <PreviewQRCode />
       </div>
       <div className="absolute inset-0 select-none pointer-events-none opacity-30">
         <Image
