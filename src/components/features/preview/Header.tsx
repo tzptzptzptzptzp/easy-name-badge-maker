@@ -6,7 +6,7 @@ export const PreviewHeader = () => {
   return (
     <div
       className="flex items-center relative w-full bg-[var(--theme-main-color)]"
-      style={{ height: scale(57) }}
+      style={{ height: scale(57), minHeight: scale(57) }}
     >
       <Image
         src="/images/logo.png"

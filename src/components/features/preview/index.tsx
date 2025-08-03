@@ -8,22 +8,24 @@ import { PreviewActivity } from "./Activity";
 import { PreviewComment } from "./Comment";
 import { PreviewMakerLogo } from "./MakerLogo";
 import { PreviewQRCode } from "./QRCode";
+import { PreviewGakucho } from "./Gakucho";
 
 export const Preview = () => {
   const { scaledFrameSize } = useConfig();
 
   return (
     <div
-      className="relative bg-[var(--theme-background-color)] text-[var(--theme-font-color)] shadow-xl"
+      className="flex flex-col relative bg-[var(--theme-background-color)] text-[var(--theme-font-color)] shadow-xl"
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <PreviewHeader />
-      <div className="relative">
+      <div className="relative w-full h-full">
         <PreviewIcon />
         <PreviewName />
         <PreviewActivity />
         <PreviewComment />
         <PreviewMakerLogo />
+        <PreviewGakucho />
         <PreviewQRCode />
       </div>
       <div className="absolute inset-0 select-none pointer-events-none opacity-30">
