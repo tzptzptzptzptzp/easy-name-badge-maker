@@ -10,6 +10,7 @@ import { PreviewMakerLogo } from "./MakerLogo";
 import { PreviewQRCode } from "./QRCode";
 import { PreviewGakucho } from "./Gakucho";
 import { PreviewBadge } from "./Badge";
+import { PreviewPR } from "./PR";
 
 export const Preview = () => {
   const { scaledFrameSize } = useConfig();
@@ -23,6 +24,7 @@ export const Preview = () => {
       <div className="relative w-full h-full">
         <PreviewIcon />
         <PreviewBadge />
+        <PreviewPR />
         <PreviewName />
         <PreviewActivity />
         <PreviewComment />
