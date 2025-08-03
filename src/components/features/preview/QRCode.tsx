@@ -2,6 +2,8 @@
 import { useConfig } from "@/hooks/useConfig";
 import { QRCodeSVG } from "qrcode.react";
 
+const DEFAULT_USER_URL =
+  "https://libecity.com/user_profile/mbYh4qxQ0ccrVkDs5H9DhwYG08w1";
 const SIZE = 72;
 
 export const PreviewQRCode = () => {
@@ -18,7 +20,7 @@ export const PreviewQRCode = () => {
       }}
     >
       <QRCodeSVG
-        value={"https://libecity.com/user_profile/JX1V0MLewVXExY4U4q9gkSqJM962"}
+        value={DEFAULT_USER_URL}
         size={scale(SIZE)}
         bgColor={"var(--theme-background-color)"}
         fgColor={"var(--theme-font-color)"}
