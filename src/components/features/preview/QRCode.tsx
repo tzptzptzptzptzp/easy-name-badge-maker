@@ -9,7 +9,7 @@ export const PreviewQRCode = () => {
 
   return (
     <div
-      className="absolute "
+      className="absolute"
       style={{
         top: scale(431),
         right: scale(20),
