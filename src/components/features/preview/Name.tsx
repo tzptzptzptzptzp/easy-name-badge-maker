@@ -1,8 +1,12 @@
 "use client";
 import { useConfig } from "@/hooks/useConfig";
+import { useUserStore } from "@/hooks/useUserStore";
+
+const PLACEHOLDER_NAME = "てづっぴ（美少女）";
 
 export const PreviewName = () => {
   const { scale } = useConfig();
+  const { name } = useUserStore();
 
   return (
     <div
@@ -16,7 +20,7 @@ export const PreviewName = () => {
       </div>
       <div className="overflow-hidden">
         <p className="whitespace-nowrap" style={{ fontSize: scale(25) }}>
-          てづっぴ（美少女）
+          {name.length > 0 ? name : PLACEHOLDER_NAME}
         </p>
       </div>
     </div>
