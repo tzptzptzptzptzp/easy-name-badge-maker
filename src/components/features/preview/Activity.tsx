@@ -6,8 +6,13 @@ export const PreviewActivity = () => {
 
   return (
     <div
-      className="flex items-center gap-3 absolute left-1/2 -translate-1/2 overflow-hidden w-[90%] border-b-2 border-dashed border-[var(--theme-font-color)] bg-white/70"
-      style={{ top: scale(388), padding: `${scale(10)}px ${scale(16)}px` }}
+      className="flex items-center gap-3 absolute left-1/2 -translate-1/2 overflow-hidden w-[90%] border-b-2 border-dashed"
+      style={{
+        top: scale(388),
+        padding: `${scale(10)}px ${scale(16)}px`,
+        borderColor: "var(--theme-font-color)",
+        backgroundColor: "#ffffffb3",
+      }}
     >
       <div>
         <p className="whitespace-nowrap" style={{ fontSize: scale(25) }}>

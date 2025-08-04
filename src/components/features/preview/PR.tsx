@@ -3,11 +3,10 @@ import { useConfig } from "@/hooks/useConfig";
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 
-const DEFAULT_USER_URL =
-  "https://libecity.com/user_profile/mbYh4qxQ0ccrVkDs5H9DhwYG08w1";
-const SIZE = 72;
+const CHAT_ROOM_URL =
+  "https://libecity.com/room_list?room_id=fBBdLqlMwKqcQO4SSY3a";
 
-export const PreviewQRCode = () => {
+export const PreviewPR = () => {
   const { scale } = useConfig();
   const [imageDataUrl, setImageDataUrl] = useState<string | null>(null);
 
@@ -30,21 +29,20 @@ export const PreviewQRCode = () => {
     loadImageAsDataUrl();
   }, []);
 
-  console.log("QRCode Image Data URL available:", !!imageDataUrl);
-
   return (
     <div
-      className="absolute"
+      className="absolute border-[3px] border-white bg-white rounded-[5px]"
       style={{
-        top: scale(431),
-        right: scale(20),
-        width: scale(SIZE),
-        height: scale(SIZE),
+        top: scale(190),
+        right: scale(18),
+        width: scale(65),
+        height: scale(65),
       }}
     >
       <QRCodeSVG
-        value={DEFAULT_USER_URL}
-        size={scale(SIZE)}
+        value={CHAT_ROOM_URL}
+        size={scale(60)}
+        className="w-full h-full rounded-[3px] select-none pointer-events-none"
         bgColor={"var(--theme-background-color)"}
         fgColor={"var(--theme-font-color)"}
         level={"L"}
@@ -54,8 +52,8 @@ export const PreviewQRCode = () => {
                 src: imageDataUrl,
                 x: undefined,
                 y: undefined,
-                height: scale(18),
-                width: scale(18),
+                height: scale(15),
+                width: scale(15),
                 opacity: 1,
                 excavate: true,
               }
