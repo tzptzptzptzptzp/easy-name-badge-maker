@@ -1,5 +1,6 @@
 import { useConfig } from "@/hooks/useConfig";
 import { EditorHeader } from "./Header";
+import { EditorFooter } from "./Footer";
 
 export const Editor = () => {
   const { scaledFrameSize } = useConfig();
@@ -10,6 +11,8 @@ export const Editor = () => {
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <EditorHeader />
+      <div className="h-full"></div>
+      <EditorFooter />
     </div>
   );
 };
