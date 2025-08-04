@@ -1,8 +1,13 @@
+import { RefObject } from "react";
 import { useConfig } from "@/hooks/useConfig";
 import { EditorHeader } from "./Header";
 import { EditorFooter } from "./Footer";
 
-export const Editor = () => {
+interface EditorProps {
+  previewRef: RefObject<HTMLDivElement | null>;
+}
+
+export const Editor = ({ previewRef }: EditorProps) => {
   const { scaledFrameSize } = useConfig();
 
   return (
@@ -12,7 +17,7 @@ export const Editor = () => {
     >
       <EditorHeader />
       <div className="h-full"></div>
-      <EditorFooter />
+      <EditorFooter previewRef={previewRef} />
     </div>
   );
 };

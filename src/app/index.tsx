@@ -1,10 +1,12 @@
 "use client";
+import { useRef } from "react";
 import { Editor } from "@/components/features/editor";
 import { Preview } from "@/components/features/preview";
 import { useConfig } from "@/hooks/useConfig";
 
 export const HomeIndex = () => {
   const { themeColor } = useConfig();
+  const previewRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
@@ -17,10 +19,10 @@ export const HomeIndex = () => {
       `}</style>
       <main className="flex items-center justify-around h-dvh">
         <div>
-          <Preview />
+          <Preview ref={previewRef} />
         </div>
         <div>
-          <Editor />
+          <Editor previewRef={previewRef} />
         </div>
       </main>
     </>
