@@ -5,8 +5,12 @@ export const PreviewHeader = () => {
   const { scale } = useConfig();
   return (
     <div
-      className="flex items-center relative w-full bg-[var(--theme-main-color)]"
-      style={{ height: scale(57), minHeight: scale(57) }}
+      className="flex items-center relative w-full"
+      style={{
+        height: scale(57),
+        minHeight: scale(57),
+        backgroundColor: "var(--theme-main-color)",
+      }}
     >
       <Image
         src="/images/logo.png"

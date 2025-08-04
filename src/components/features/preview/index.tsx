@@ -17,9 +17,15 @@ export const Preview = forwardRef<HTMLDivElement>((_, ref) => {
 
   return (
     <div
+      id="target-component"
       ref={ref}
-      className="flex flex-col relative bg-[var(--theme-background-color)] text-[var(--theme-font-color)] shadow-xl"
-      style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
+      className="flex flex-col relative shadow-xl"
+      style={{
+        width: scaledFrameSize.width,
+        height: scaledFrameSize.height,
+        backgroundColor: "var(--theme-background-color)",
+        color: "var(--theme-font-color)",
+      }}
     >
       <PreviewHeader />
       <div className="relative w-full h-full">
