@@ -1,3 +1,15 @@
+import { useConfig } from "@/hooks/useConfig";
+import { EditorHeader } from "./Header";
+
 export const Editor = () => {
-  return <p>Editor</p>;
+  const { scaledFrameSize } = useConfig();
+
+  return (
+    <div
+      className="flex flex-col relative border-[3px] rounded-3xl border-main shadow-xl leading-none"
+      style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
+    >
+      <EditorHeader />
+    </div>
+  );
 };
