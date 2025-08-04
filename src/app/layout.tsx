@@ -5,7 +5,7 @@ import "../styles/globals.css";
 const mPlusRounded = M_PLUS_Rounded_1c({
   variable: "--font-m-plus-rounded",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "800"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${mPlusRounded.variable} font-sans antialiased`}>
+      <body className={`${mPlusRounded.variable} text-text antialiased`}>
         {children}
       </body>
     </html>
