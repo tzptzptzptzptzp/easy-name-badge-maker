@@ -7,13 +7,15 @@ interface EditorFooterProps {
 }
 
 export const EditorFooter = ({ previewRef }: EditorFooterProps) => {
-  const { saveAsImage } = useImageSave();
   const [isSaving, setIsSaving] = useState(false);
+  const { saveImage } = useImageSave();
 
-  const handleSaveImage = async () => {
+  const handleSaveImage = async (): Promise<void> => {
     setIsSaving(true);
     try {
-      await saveAsImage(previewRef, "name-badge");
+      await saveImage(previewRef, "name-badge");
+    } catch (error) {
+      console.error("画像保存に失敗しました:", error);
     } finally {
       setIsSaving(false);
     }
