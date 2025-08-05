@@ -6,6 +6,7 @@ type User = {
   font: string;
   name: string;
   activity: string;
+  iconUrl: string | null;
 };
 
 type UserStore = User & {
@@ -13,6 +14,7 @@ type UserStore = User & {
   setFont: (font: string) => void;
   setName: (name: string) => void;
   setActivity: (activity: string) => void;
+  setIconUrl: (iconUrl: string | null) => void;
 };
 
 export const useUserStore = create<UserStore>()(
@@ -22,10 +24,12 @@ export const useUserStore = create<UserStore>()(
       font: "default",
       name: "",
       activity: "",
+      iconUrl: null,
       setTheme: (theme: string) => set({ theme }),
       setFont: (font: string) => set({ font }),
       setName: (name: string) => set({ name }),
       setActivity: (activity: string) => set({ activity }),
+      setIconUrl: (iconUrl: string | null) => set({ iconUrl }),
     }),
     {
       name: "user-store",
