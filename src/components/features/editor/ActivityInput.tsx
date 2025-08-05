@@ -13,6 +13,7 @@ export const EditorActivityInput = () => {
       <Input
         type="text"
         id="activity"
+        placeholder="専攻を入力"
         onChange={handleChange}
         value={activity}
       />

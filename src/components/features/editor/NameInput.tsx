@@ -10,7 +10,13 @@ export const EditorNameInput = () => {
   };
   return (
     <FormElement label="名前" htmlFor="name">
-      <Input type="text" id="name" onChange={handleChange} value={name} />
+      <Input
+        type="text"
+        id="name"
+        placeholder="名前を入力"
+        onChange={handleChange}
+        value={name}
+      />
     </FormElement>
   );
 };
