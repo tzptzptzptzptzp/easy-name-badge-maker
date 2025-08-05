@@ -7,6 +7,7 @@ import { EditorActivityInput } from "./ActivityInput";
 import { EditorThemeSelect } from "./ThemeSelect";
 import { EditorFontSelect } from "./FontSelect";
 import { EditorIconInput } from "./IconInput";
+import { EditorProfileUrlButton } from "./ProfileUrlButton";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -27,6 +28,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
         <EditorIconInput />
         <EditorNameInput />
         <EditorActivityInput />
+        <EditorProfileUrlButton />
       </div>
       <EditorFooter previewRef={previewRef} />
     </div>

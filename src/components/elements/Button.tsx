@@ -1,6 +1,12 @@
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
-type ButtonVariant = "default" | "destructive" | "outline" | "ghost" | "link";
+type ButtonVariant =
+  | "default"
+  | "destructive"
+  | "outline"
+  | "ghost"
+  | "link"
+  | "none";
 type ButtonSize = "default" | "xs" | "sm" | "lg" | "xl" | "icon";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -19,6 +25,7 @@ const getVariantClasses = (variant: ButtonVariant = "default"): string => {
       "border border-main bg-transparent text-main shadow-[0_5px_0_0_var(--color-main)] hover:translate-y-[3px] hover:shadow-none transition-all duration-300",
     ghost: "text-main hover:bg-main/10 transition-all duration-300",
     link: "text-main underline-offset-4 hover:underline transition-all duration-300",
+    none: "",
   };
   return variants[variant];
 };
@@ -47,7 +54,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseClasses =
-      "inline-flex items-center justify-center rounded-full whitespace-nowrap font-bold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 active:translate-y-[3px] active:shadow-none";
+      variant !== "none"
+        ? "inline-flex items-center justify-center rounded-full whitespace-nowrap font-bold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 active:translate-y-[3px] active:shadow-none"
+        : "";
     const variantClasses = getVariantClasses(variant);
     const sizeClasses = getSizeClasses(size);
 
