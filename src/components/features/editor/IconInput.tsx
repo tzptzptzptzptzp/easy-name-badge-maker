@@ -1,9 +1,9 @@
-import { Input } from "@/components/forms";
+import { FileInput } from "@/components/forms";
 import { FormElement } from "@/components/forms/FormElement";
 import { useUserStore } from "@/hooks/useUserStore";
 
 export const EditorIconInput = () => {
-  const { setIconUrl } = useUserStore();
+  const { iconUrl, setIconUrl } = useUserStore();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -27,7 +27,14 @@ export const EditorIconInput = () => {
   };
   return (
     <FormElement label="アイコン" htmlFor="icon">
-      <Input type="file" id="icon" accept="image/*" onChange={handleChange} />
+      <FileInput
+        id="icon"
+        accept="image/*"
+        onChange={handleChange}
+        hasFile={!!iconUrl}
+        buttonText="画像を選択"
+        selectedText="変更する"
+      />
     </FormElement>
   );
 };
