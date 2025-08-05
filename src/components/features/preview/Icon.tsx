@@ -1,6 +1,5 @@
 "use client";
 import { useConfig } from "@/hooks/useConfig";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export const PreviewIcon = () => {
@@ -16,9 +15,10 @@ export const PreviewIcon = () => {
 
   return (
     isLoaded && (
-      <Image
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
         src={`/images/bsj/bisyojo_chan_${randomNum}.png`}
-        alt="リベシティ"
+        alt="アイコン"
         width={scale(220) * 2}
         height={scale(220) * 2}
         className="absolute left-1/2 -translate-x-1/2 h-auto rounded-full select-none pointer-events-none"

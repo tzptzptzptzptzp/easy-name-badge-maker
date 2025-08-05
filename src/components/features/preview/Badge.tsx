@@ -1,6 +1,5 @@
 "use client";
 import { useConfig } from "@/hooks/useConfig";
-import Image from "next/image";
 
 export const PreviewBadge = () => {
   const { scale } = useConfig();
@@ -15,7 +14,8 @@ export const PreviewBadge = () => {
         height: scale(65),
       }}
     >
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={"/images/badge/badge-01.jpg"}
         alt="バッジ"
         width={scale(60) * 2}

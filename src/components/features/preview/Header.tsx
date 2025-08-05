@@ -1,5 +1,4 @@
 import { useConfig } from "@/hooks/useConfig";
-import Image from "next/image";
 
 export const PreviewHeader = () => {
   const { scale } = useConfig();
@@ -12,7 +11,8 @@ export const PreviewHeader = () => {
         backgroundColor: "var(--theme-main-color)",
       }}
     >
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src="/images/logo.png"
         alt="リベシティ"
         width={scale(146) * 2}

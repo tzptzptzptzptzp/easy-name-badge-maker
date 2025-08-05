@@ -1,6 +1,5 @@
 "use client";
 import { useConfig } from "@/hooks/useConfig";
-import Image from "next/image";
 
 export const PreviewGakucho = () => {
   const { scale } = useConfig();
@@ -10,9 +9,10 @@ export const PreviewGakucho = () => {
       className="absolute"
       style={{ bottom: scale(12.5), left: scale(206), width: scale(88) }}
     >
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={`/images/gakucho/jump.png`}
-        alt="リベシティ"
+        alt="学長"
         width={scale(88)}
         height={scale(88)}
         className="w-full h-full object-cover"
