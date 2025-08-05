@@ -2,6 +2,7 @@ import { RefObject } from "react";
 import { useConfig } from "@/hooks/useConfig";
 import { EditorHeader } from "./Header";
 import { EditorFooter } from "./Footer";
+import { EditorNameInput } from "./NameInput";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -16,7 +17,9 @@ export const Editor = ({ previewRef }: EditorProps) => {
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <EditorHeader />
-      <div className="h-full"></div>
+      <div className="h-full p-4">
+        <EditorNameInput />
+      </div>
       <EditorFooter previewRef={previewRef} />
     </div>
   );
