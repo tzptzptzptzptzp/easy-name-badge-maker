@@ -6,6 +6,7 @@ type ButtonSize = "default" | "xs" | "sm" | "lg" | "xl" | "icon";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  isActive?: boolean;
 }
 
 const getVariantClasses = (variant: ButtonVariant = "default"): string => {
@@ -25,7 +26,7 @@ const getVariantClasses = (variant: ButtonVariant = "default"): string => {
 const getSizeClasses = (size: ButtonSize = "default"): string => {
   const sizes: Record<ButtonSize, string> = {
     default: "p-3 text-[16px]",
-    xs: "p-2 text-[12px]",
+    xs: "px-2 py-1 text-[12px]",
     sm: "p-2 text-[14px]",
     lg: "p-4 text-[18px]",
     xl: "p-4 text-[20px]",
@@ -36,7 +37,13 @@ const getSizeClasses = (size: ButtonSize = "default"): string => {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className = "", variant = "default", size = "default", ...props },
+    {
+      className = "",
+      variant = "default",
+      size = "default",
+      isActive = false,
+      ...props
+    },
     ref
   ) => {
     const baseClasses =
@@ -44,10 +51,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const variantClasses = getVariantClasses(variant);
     const sizeClasses = getSizeClasses(size);
 
+    // アクティブ時のスタイルを適用
+    const activeStyles = isActive ? "translate-y-[3px] shadow-none" : "";
+
     const combinedClasses = [
       baseClasses,
       variantClasses,
       sizeClasses,
+      activeStyles,
       className,
     ]
       .filter(Boolean)
