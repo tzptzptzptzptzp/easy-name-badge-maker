@@ -26,6 +26,20 @@ export const Preview = forwardRef<HTMLDivElement>((_, ref) => {
         return "font-m-plus-rounded";
       case "kaisei-decol":
         return "font-kaisei-decol";
+      case "yuji-syuku":
+        return "font-yuji-syuku";
+      case "yusei-magic":
+        return "font-yusei-magic";
+      case "zen-antique":
+        return "font-zen-antique";
+      case "dela-gothic-one":
+        return "font-dela-gothic-one";
+      case "mochiy-pop-one":
+        return "font-mochiy-pop-one";
+      case "rampart-one":
+        return "font-rampart-one";
+      case "rocknroll-one":
+        return "font-rocknroll-one";
       default:
         return "font-default";
     }

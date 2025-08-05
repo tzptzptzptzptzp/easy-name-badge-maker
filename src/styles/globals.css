@@ -31,6 +31,34 @@
   font-family: var(--font-kaisei-decol), serif;
 }
 
+.font-yuji-syuku {
+  font-family: var(--font-yuji-syuku), serif;
+}
+
+.font-yusei-magic {
+  font-family: var(--font-yusei-magic), sans-serif;
+}
+
+.font-zen-antique {
+  font-family: var(--font-zen-antique), serif;
+}
+
+.font-dela-gothic-one {
+  font-family: var(--font-dela-gothic-one), sans-serif;
+}
+
+.font-mochiy-pop-one {
+  font-family: var(--font-mochiy-pop-one), sans-serif;
+}
+
+.font-rampart-one {
+  font-family: var(--font-rampart-one), sans-serif;
+}
+
+.font-rocknroll-one {
+  font-family: var(--font-rocknroll-one), sans-serif;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

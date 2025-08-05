@@ -15,16 +15,33 @@ export const useFont = (fontValue: FontValue) => {
       root.classList.remove(
         "font-default",
         "font-m-plus-rounded",
-        "font-kaisei-decol"
+        "font-kaisei-decol",
+        "font-yuji-syuku",
+        "font-yusei-magic",
+        "font-zen-antique",
+        "font-dela-gothic-one",
+        "font-mochiy-pop-one",
+        "font-rampart-one",
+        "font-rocknroll-one"
       );
 
       // 新しいフォント用のクラスを追加
-      if (fontValue === "default") {
-        root.classList.add("font-default");
-      } else if (fontValue === "m-plus-rounded") {
-        root.classList.add("font-m-plus-rounded");
-      } else if (fontValue === "kaisei-decol") {
-        root.classList.add("font-kaisei-decol");
+      const fontClassMap: Record<string, string> = {
+        default: "font-default",
+        "m-plus-rounded": "font-m-plus-rounded",
+        "kaisei-decol": "font-kaisei-decol",
+        "yuji-syuku": "font-yuji-syuku",
+        "yusei-magic": "font-yusei-magic",
+        "zen-antique": "font-zen-antique",
+        "dela-gothic-one": "font-dela-gothic-one",
+        "mochiy-pop-one": "font-mochiy-pop-one",
+        "rampart-one": "font-rampart-one",
+        "rocknroll-one": "font-rocknroll-one",
+      };
+
+      const fontClass = fontClassMap[fontValue];
+      if (fontClass) {
+        root.classList.add(fontClass);
       }
     }
   }, [fontValue]);
