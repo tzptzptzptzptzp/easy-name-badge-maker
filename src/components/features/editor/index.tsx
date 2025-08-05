@@ -4,6 +4,7 @@ import { EditorHeader } from "./Header";
 import { EditorFooter } from "./Footer";
 import { EditorNameInput } from "./NameInput";
 import { EditorActivityInput } from "./ActivityInput";
+import { EditorThemeSelect } from "./ThemeSelect";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -19,6 +20,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
     >
       <EditorHeader />
       <div className="flex flex-col gap-2 h-full p-4">
+        <EditorThemeSelect />
         <EditorNameInput />
         <EditorActivityInput />
       </div>
