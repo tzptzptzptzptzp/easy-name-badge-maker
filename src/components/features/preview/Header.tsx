@@ -5,7 +5,7 @@ export const PreviewHeader = () => {
   const { scale } = useConfig();
   return (
     <div
-      className="flex items-center relative w-full"
+      className="flex items-center relative overflow-hidden w-full"
       style={{
         height: scale(57),
         minHeight: scale(57),
@@ -27,10 +27,11 @@ export const PreviewHeader = () => {
       {[...Array(12)].map((_, index) => (
         <div
           key={index}
-          className="absolute opacity-50 rotate-45"
+          className="absolute opacity-50"
           style={{
             top: scale(-30),
             left: scale(-12 + index * 36),
+            transform: "rotate(45deg)",
             width: scale(18.5),
             height: scale(120),
             border: `${scale(6)}px solid rgba(255,255,255,.2) `,
