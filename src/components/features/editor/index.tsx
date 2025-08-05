@@ -4,6 +4,7 @@ import { EditorHeader } from "./Header";
 import { EditorFooter } from "./Footer";
 import { EditorNameInput } from "./NameInput";
 import { EditorActivityInput } from "./ActivityInput";
+import { EditorCommentInput } from "./CommentInput";
 import { EditorThemeSelect } from "./ThemeSelect";
 import { EditorFontSelect } from "./FontSelect";
 import { EditorIconInput } from "./IconInput";
@@ -29,6 +30,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
         <EditorNameInput />
         <EditorActivityInput />
         <EditorProfileUrlButton />
+        <EditorCommentInput />
       </div>
       <EditorFooter previewRef={previewRef} />
     </div>

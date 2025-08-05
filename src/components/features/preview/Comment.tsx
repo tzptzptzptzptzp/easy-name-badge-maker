@@ -1,8 +1,10 @@
 "use client";
 import { useConfig } from "@/hooks/useConfig";
+import { useUserStore } from "@/hooks/useUserStore";
 
 export const PreviewComment = () => {
   const { scale } = useConfig();
+  const { comment } = useUserStore();
 
   return (
     <div
@@ -17,7 +19,7 @@ export const PreviewComment = () => {
         className=" leading-[1.15] line-clamp-2"
         style={{ fontSize: scale(18) }}
       >
-        コメントコメントコメントコメントコメントコメントコメント
+        {comment || "コメントを入力してください"}
       </p>
     </div>
   );
