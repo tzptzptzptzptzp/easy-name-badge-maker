@@ -1,6 +1,7 @@
 "use client";
 import { forwardRef } from "react";
 import { useConfig } from "@/hooks/useConfig";
+import { useUserStore } from "@/hooks/useUserStore";
 import { PreviewHeader } from "./Header";
 import { PreviewIcon } from "./Icon";
 import { PreviewBadge } from "./Badge";
@@ -14,12 +15,29 @@ import { PreviewQRCode } from "./QRCode";
 
 export const Preview = forwardRef<HTMLDivElement>((_, ref) => {
   const { scaledFrameSize } = useConfig();
+  const { font } = useUserStore();
+
+  // フォントに応じたクラス名を決定
+  const getFontClass = (fontValue: string) => {
+    switch (fontValue) {
+      case "default":
+        return "font-default";
+      case "m-plus-rounded":
+        return "font-m-plus-rounded";
+      case "kaisei-decol":
+        return "font-kaisei-decol";
+      default:
+        return "font-default";
+    }
+  };
+
+  const fontClass = getFontClass(font);
 
   return (
     <div
       id="target-component"
       ref={ref}
-      className="flex flex-col relative shadow-xl"
+      className={`flex flex-col relative shadow-xl ${fontClass}`}
       style={{
         width: scaledFrameSize.width,
         height: scaledFrameSize.height,

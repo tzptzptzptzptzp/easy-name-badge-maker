@@ -19,12 +19,22 @@ export const PreviewName = () => {
       }}
     >
       <div>
-        <p className="whitespace-nowrap" style={{ fontSize: scale(25) }}>
+        <p
+          className="whitespace-nowrap"
+          style={{
+            fontSize: scale(25),
+          }}
+        >
           名前
         </p>
       </div>
       <div className="overflow-hidden">
-        <p className="whitespace-nowrap" style={{ fontSize: scale(25) }}>
+        <p
+          className="whitespace-nowrap"
+          style={{
+            fontSize: scale(25),
+          }}
+        >
           {name.length > 0 ? name : PLACEHOLDER_NAME}
         </p>
       </div>

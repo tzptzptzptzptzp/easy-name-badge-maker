@@ -17,6 +17,20 @@
   --color-text: var(--foreground);
 }
 
+/* カスタムフォントクラス */
+.font-default {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+.font-m-plus-rounded {
+  font-family: var(--font-m-plus-rounded), sans-serif;
+}
+
+.font-kaisei-decol {
+  font-family: var(--font-kaisei-decol), serif;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -27,7 +41,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-m-plus-rounded), Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   font-weight: bold;
   line-height: 1;
 }

@@ -17,12 +17,22 @@ export const PreviewActivity = () => {
       }}
     >
       <div>
-        <p className="whitespace-nowrap" style={{ fontSize: scale(25) }}>
+        <p
+          className="whitespace-nowrap"
+          style={{
+            fontSize: scale(25),
+          }}
+        >
           専攻
         </p>
       </div>
       <div className="overflow-hidden">
-        <p className="whitespace-nowrap" style={{ fontSize: scale(25) }}>
+        <p
+          className="whitespace-nowrap"
+          style={{
+            fontSize: scale(25),
+          }}
+        >
           {activity || "専攻を入力してください"}
         </p>
       </div>
