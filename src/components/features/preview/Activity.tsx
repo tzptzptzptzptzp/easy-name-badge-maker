@@ -1,8 +1,10 @@
 "use client";
 import { useConfig } from "@/hooks/useConfig";
+import { useUserStore } from "@/hooks/useUserStore";
 
 export const PreviewActivity = () => {
   const { scale } = useConfig();
+  const { activity } = useUserStore();
 
   return (
     <div
@@ -21,7 +23,7 @@ export const PreviewActivity = () => {
       </div>
       <div className="overflow-hidden">
         <p className="whitespace-nowrap" style={{ fontSize: scale(25) }}>
-          プログラミング
+          {activity || "専攻を入力してください"}
         </p>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { useConfig } from "@/hooks/useConfig";
 import { EditorHeader } from "./Header";
 import { EditorFooter } from "./Footer";
 import { EditorNameInput } from "./NameInput";
+import { EditorActivityInput } from "./ActivityInput";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -17,8 +18,9 @@ export const Editor = ({ previewRef }: EditorProps) => {
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <EditorHeader />
-      <div className="h-full p-4">
+      <div className="flex flex-col gap-2 h-full p-4">
         <EditorNameInput />
+        <EditorActivityInput />
       </div>
       <EditorFooter previewRef={previewRef} />
     </div>
