@@ -13,6 +13,7 @@ import { EditorPrRadio } from "./PRRadio";
 import { EditorGakuchoSelect } from "./GakuchoSelect";
 import { EditorBadgeSelect } from "./BadgeSelect";
 import { EditorPatternSelect } from "./PatternSelect";
+import { EditorRankRadio } from "./RankRadio";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -35,6 +36,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
         <EditorGakuchoSelect />
         <EditorIconInput />
         <EditorNameInput />
+        <EditorRankRadio />
         <EditorActivityInput />
         <EditorProfileUrlButton />
         <EditorCommentInput />

@@ -6,7 +6,7 @@ const PLACEHOLDER_NAME = "てづっぴ（美少女）";
 
 export const PreviewName = () => {
   const { scale } = useConfig();
-  const { name } = useUserStore();
+  const { name, rankIcon } = useUserStore();
 
   return (
     <div
@@ -31,7 +31,7 @@ export const PreviewName = () => {
           名前
         </p>
       </div>
-      <div className="overflow-hidden">
+      <div className="flex items-center gap-2 overflow-hidden">
         <p
           className="whitespace-nowrap"
           style={{
@@ -40,6 +40,18 @@ export const PreviewName = () => {
         >
           {name.length > 0 ? name : PLACEHOLDER_NAME}
         </p>
+        {rankIcon !== "none" && (
+          <div className="flex-shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/images/rank/${rankIcon}.png`}
+              alt="会員アイコン"
+              width={scale(28)}
+              height={scale(28)}
+              className="h-auto object-cover"
+            />
+          </div>
+        )}
       </div>
     </div>
   );

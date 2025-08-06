@@ -13,6 +13,7 @@ type User = {
   gakuchoImage: string;
   badgeImage: string;
   patternImage: string;
+  rankIcon: string;
 };
 
 type UserStore = User & {
@@ -27,6 +28,7 @@ type UserStore = User & {
   setGakuchoImage: (gakuchoImage: string) => void;
   setBadgeImage: (badgeImage: string) => void;
   setPatternImage: (patternImage: string) => void;
+  setRankIcon: (rankIcon: string) => void;
 };
 
 export const useUserStore = create<UserStore>()(
@@ -43,6 +45,7 @@ export const useUserStore = create<UserStore>()(
       gakuchoImage: "jump",
       badgeImage: "none",
       patternImage: "none",
+      rankIcon: "none",
       setTheme: (theme: string) => set({ theme }),
       setFont: (font: string) => set({ font }),
       setName: (name: string) => set({ name }),
@@ -54,6 +57,7 @@ export const useUserStore = create<UserStore>()(
       setGakuchoImage: (gakuchoImage: string) => set({ gakuchoImage }),
       setBadgeImage: (badgeImage: string) => set({ badgeImage }),
       setPatternImage: (patternImage: string) => set({ patternImage }),
+      setRankIcon: (rankIcon: string) => set({ rankIcon }),
     }),
     {
       name: "user-store",
