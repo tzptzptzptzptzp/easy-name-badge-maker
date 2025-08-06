@@ -1,5 +1,6 @@
 import React from "react";
 import { useModeStore } from "@/hooks/useModeStore";
+import { cn } from "@/utils/cn";
 
 type Props = {
   label: string;
@@ -21,7 +22,10 @@ export const FormElement = ({
 
   return (
     <div className="flex items-center justify-between">
-      <label htmlFor={htmlFor} className="w-1/3">
+      <label
+        htmlFor={htmlFor}
+        className={cn("w-1/3", onlyCustom && "text-main")}
+      >
         {label}
       </label>
       <div className="w-2/3">{children}</div>
