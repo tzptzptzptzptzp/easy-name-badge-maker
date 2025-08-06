@@ -8,7 +8,7 @@ export const PreviewActivity = () => {
 
   return (
     <div
-      className="border flex items-center gap-3 absolute left-1/2 -translate-1/2 overflow-hidden w-[90%] px-3 border-b-2 border-dashed"
+      className="border flex items-center gap-3 absolute left-1/2 -translate-1/2 overflow-hidden w-[90%] px-3 pt-1 border-b-2 border-dashed"
       style={{
         top: scale(388),
         height: scale(60),
