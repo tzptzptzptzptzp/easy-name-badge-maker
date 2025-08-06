@@ -8,13 +8,16 @@ export const PreviewComment = () => {
 
   return (
     <div
-      className="flex items-center gap-3 absolute left-[5%] overflow-hidden w-[48.5%]"
+      className="flex items-center gap-3 absolute left-[5%] z-0 overflow-hidden w-[48.5%]"
       style={{
         top: scale(430),
         padding: `0 ${scale(2)}px`,
-        backgroundColor: "#ffffffb3",
       }}
     >
+      <div
+        className="absolute inset-0 -z-10 w-full h-full opacity-70"
+        style={{ backgroundColor: "var(--theme-background-color)" }}
+      />
       <p
         className=" leading-[1.15] line-clamp-2"
         style={{ fontSize: scale(18) }}
