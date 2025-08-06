@@ -12,6 +12,7 @@ import { EditorProfileUrlButton } from "./ProfileUrlButton";
 import { EditorPrRadio } from "./PRRadio";
 import { EditorGakuchoSelect } from "./GakuchoSelect";
 import { EditorBadgeSelect } from "./BadgeSelect";
+import { EditorPatternSelect } from "./PatternSelect";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -28,14 +29,15 @@ export const Editor = ({ previewRef }: EditorProps) => {
       <EditorHeader />
       <div className="flex flex-col gap-2 h-full p-4">
         <EditorThemeSelect />
+        <EditorPatternSelect />
         <EditorFontSelect />
+        <EditorBadgeSelect />
+        <EditorGakuchoSelect />
         <EditorIconInput />
         <EditorNameInput />
-        <EditorBadgeSelect />
         <EditorActivityInput />
         <EditorProfileUrlButton />
         <EditorCommentInput />
-        <EditorGakuchoSelect />
         <EditorPrRadio />
       </div>
       <EditorFooter previewRef={previewRef} />

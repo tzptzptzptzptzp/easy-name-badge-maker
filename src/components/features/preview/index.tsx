@@ -12,6 +12,7 @@ import { PreviewComment } from "./Comment";
 import { PreviewMakerLogo } from "./MakerLogo";
 import { PreviewGakucho } from "./Gakucho";
 import { PreviewQRCode } from "./QRCode";
+import { PreviewPattern } from "./Pattern";
 
 export const Preview = forwardRef<HTMLDivElement>((_, ref) => {
   const { scaledFrameSize } = useConfig();
@@ -59,6 +60,7 @@ export const Preview = forwardRef<HTMLDivElement>((_, ref) => {
         color: "var(--theme-font-color)",
       }}
     >
+      <PreviewPattern />
       <PreviewHeader />
       <div className="relative w-full h-full">
         <PreviewIcon />

@@ -12,6 +12,7 @@ type User = {
   prEnabled: boolean;
   gakuchoImage: string;
   badgeImage: string;
+  patternImage: string;
 };
 
 type UserStore = User & {
@@ -25,6 +26,7 @@ type UserStore = User & {
   setPrEnabled: (prEnabled: boolean) => void;
   setGakuchoImage: (gakuchoImage: string) => void;
   setBadgeImage: (badgeImage: string) => void;
+  setPatternImage: (patternImage: string) => void;
 };
 
 export const useUserStore = create<UserStore>()(
@@ -40,6 +42,7 @@ export const useUserStore = create<UserStore>()(
       prEnabled: false,
       gakuchoImage: "jump",
       badgeImage: "badge-01",
+      patternImage: "none",
       setTheme: (theme: string) => set({ theme }),
       setFont: (font: string) => set({ font }),
       setName: (name: string) => set({ name }),
@@ -50,6 +53,7 @@ export const useUserStore = create<UserStore>()(
       setPrEnabled: (prEnabled: boolean) => set({ prEnabled }),
       setGakuchoImage: (gakuchoImage: string) => set({ gakuchoImage }),
       setBadgeImage: (badgeImage: string) => set({ badgeImage }),
+      setPatternImage: (patternImage: string) => set({ patternImage }),
     }),
     {
       name: "user-store",
