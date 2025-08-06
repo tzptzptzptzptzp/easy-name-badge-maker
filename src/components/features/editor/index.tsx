@@ -11,6 +11,7 @@ import { EditorIconInput } from "./IconInput";
 import { EditorProfileUrlButton } from "./ProfileUrlButton";
 import { EditorPrRadio } from "./PRRadio";
 import { EditorGakuchoSelect } from "./GakuchoSelect";
+import { EditorBadgeSelect } from "./BadgeSelect";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -30,6 +31,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
         <EditorFontSelect />
         <EditorIconInput />
         <EditorNameInput />
+        <EditorBadgeSelect />
         <EditorActivityInput />
         <EditorProfileUrlButton />
         <EditorCommentInput />
