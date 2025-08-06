@@ -41,7 +41,7 @@ export const useUserStore = create<UserStore>()(
       comment: "",
       prEnabled: false,
       gakuchoImage: "jump",
-      badgeImage: "badge-01",
+      badgeImage: "none",
       patternImage: "none",
       setTheme: (theme: string) => set({ theme }),
       setFont: (font: string) => set({ font }),
