@@ -10,6 +10,7 @@ import { EditorFontSelect } from "./FontSelect";
 import { EditorIconInput } from "./IconInput";
 import { EditorProfileUrlButton } from "./ProfileUrlButton";
 import { EditorPrRadio } from "./PRRadio";
+import { EditorGakuchoSelect } from "./GakuchoSelect";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -32,6 +33,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
         <EditorActivityInput />
         <EditorProfileUrlButton />
         <EditorCommentInput />
+        <EditorGakuchoSelect />
         <EditorPrRadio />
       </div>
       <EditorFooter previewRef={previewRef} />

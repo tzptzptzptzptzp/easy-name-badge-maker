@@ -10,6 +10,7 @@ type User = {
   profileUrl: string;
   comment: string;
   prEnabled: boolean;
+  gakuchoImage: string;
 };
 
 type UserStore = User & {
@@ -21,6 +22,7 @@ type UserStore = User & {
   setProfileUrl: (profileUrl: string) => void;
   setComment: (comment: string) => void;
   setPrEnabled: (prEnabled: boolean) => void;
+  setGakuchoImage: (gakuchoImage: string) => void;
 };
 
 export const useUserStore = create<UserStore>()(
@@ -34,6 +36,7 @@ export const useUserStore = create<UserStore>()(
       profileUrl: "",
       comment: "",
       prEnabled: false,
+      gakuchoImage: "jump",
       setTheme: (theme: string) => set({ theme }),
       setFont: (font: string) => set({ font }),
       setName: (name: string) => set({ name }),
@@ -42,6 +45,7 @@ export const useUserStore = create<UserStore>()(
       setProfileUrl: (profileUrl: string) => set({ profileUrl }),
       setComment: (comment: string) => set({ comment }),
       setPrEnabled: (prEnabled: boolean) => set({ prEnabled }),
+      setGakuchoImage: (gakuchoImage: string) => set({ gakuchoImage }),
     }),
     {
       name: "user-store",

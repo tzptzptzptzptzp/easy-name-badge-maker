@@ -1,0 +1,18 @@
+export const gakuchoImages = [
+  { value: "jump", label: "ジャンプ" },
+  { value: "double", label: "ダブル・バイセップス" },
+  { value: "fly", label: "空を飛ぶ" },
+  { value: "pointing1", label: "指差し-斜め" },
+  { value: "pointing2", label: "指差し-両手" },
+  { value: "crossed", label: "マッチョ腕組み" },
+  { value: "stand1", label: "仁王立ち" },
+  { value: "stand2", label: "仁王立ち-腕組み" },
+  { value: "stand3", label: "仁王立ち-考え中" },
+  { value: "stand4", label: "仁王立ち-ポイント" },
+  { value: "stand5", label: "仁王立ち-Vサイン" },
+  { value: "loose", label: "ゆるぐだ" },
+  { value: "lie", label: "寝転び腕まくら" },
+  { value: "student", label: "学生" },
+  { value: "face", label: "学長の顔" },
+  { value: "mini", label: "ミニキャラ" },
+];
