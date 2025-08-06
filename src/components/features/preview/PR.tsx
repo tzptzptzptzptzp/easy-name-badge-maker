@@ -1,5 +1,6 @@
 "use client";
 import { useConfig } from "@/hooks/useConfig";
+import { useUserStore } from "@/hooks/useUserStore";
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 
@@ -8,6 +9,7 @@ const CHAT_ROOM_URL =
 
 export const PreviewPR = () => {
   const { scale } = useConfig();
+  const { prEnabled } = useUserStore();
   const [imageDataUrl, setImageDataUrl] = useState<string | null>(null);
 
   useEffect(() => {
@@ -28,6 +30,11 @@ export const PreviewPR = () => {
 
     loadImageAsDataUrl();
   }, []);
+
+  // PR設定が無効の場合は何も表示しない
+  if (!prEnabled) {
+    return null;
+  }
 
   return (
     <div

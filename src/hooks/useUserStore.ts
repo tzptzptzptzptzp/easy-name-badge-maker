@@ -9,6 +9,7 @@ type User = {
   iconUrl: string | null;
   profileUrl: string;
   comment: string;
+  prEnabled: boolean;
 };
 
 type UserStore = User & {
@@ -19,6 +20,7 @@ type UserStore = User & {
   setIconUrl: (iconUrl: string | null) => void;
   setProfileUrl: (profileUrl: string) => void;
   setComment: (comment: string) => void;
+  setPrEnabled: (prEnabled: boolean) => void;
 };
 
 export const useUserStore = create<UserStore>()(
@@ -31,6 +33,7 @@ export const useUserStore = create<UserStore>()(
       iconUrl: null,
       profileUrl: "",
       comment: "",
+      prEnabled: false,
       setTheme: (theme: string) => set({ theme }),
       setFont: (font: string) => set({ font }),
       setName: (name: string) => set({ name }),
@@ -38,6 +41,7 @@ export const useUserStore = create<UserStore>()(
       setIconUrl: (iconUrl: string | null) => set({ iconUrl }),
       setProfileUrl: (profileUrl: string) => set({ profileUrl }),
       setComment: (comment: string) => set({ comment }),
+      setPrEnabled: (prEnabled: boolean) => set({ prEnabled }),
     }),
     {
       name: "user-store",

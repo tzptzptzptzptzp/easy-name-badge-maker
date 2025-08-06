@@ -9,6 +9,7 @@ import { EditorThemeSelect } from "./ThemeSelect";
 import { EditorFontSelect } from "./FontSelect";
 import { EditorIconInput } from "./IconInput";
 import { EditorProfileUrlButton } from "./ProfileUrlButton";
+import { EditorPrRadio } from "./PRRadio";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -31,6 +32,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
         <EditorActivityInput />
         <EditorProfileUrlButton />
         <EditorCommentInput />
+        <EditorPrRadio />
       </div>
       <EditorFooter previewRef={previewRef} />
     </div>
