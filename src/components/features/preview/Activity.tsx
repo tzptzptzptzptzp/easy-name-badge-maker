@@ -8,10 +8,10 @@ export const PreviewActivity = () => {
 
   return (
     <div
-      className="flex items-center gap-3 absolute left-1/2 -translate-1/2 overflow-hidden w-[90%] border-b-2 border-dashed"
+      className="border flex items-center gap-3 absolute left-1/2 -translate-1/2 overflow-hidden w-[90%] px-3 border-b-2 border-dashed"
       style={{
         top: scale(388),
-        padding: `${scale(16)}px ${scale(16)}px`,
+        height: scale(60),
         borderColor: "var(--theme-font-color)",
       }}
     >
@@ -21,7 +21,7 @@ export const PreviewActivity = () => {
       />
       <div>
         <p
-          className="whitespace-nowrap"
+          className="whitespace-nowrap leading-none"
           style={{
             fontSize: scale(25),
           }}
@@ -31,7 +31,7 @@ export const PreviewActivity = () => {
       </div>
       <div className="overflow-hidden">
         <p
-          className="whitespace-nowrap"
+          className="whitespace-nowrap leading-none"
           style={{
             fontSize: scale(25),
           }}

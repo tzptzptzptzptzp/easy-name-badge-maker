@@ -10,10 +10,10 @@ export const PreviewName = () => {
 
   return (
     <div
-      className="flex items-center gap-3 absolute left-1/2 -translate-1/2 overflow-hidden w-[90%] border-b-2 border-dashed"
+      className="border flex items-center gap-3 absolute left-1/2 -translate-1/2 overflow-hidden w-[90%] px-3 border-b-2 border-dashed"
       style={{
         top: scale(312),
-        padding: `${scale(16)}px ${scale(16)}px`,
+        height: scale(60),
         borderColor: "var(--theme-font-color)",
       }}
     >
