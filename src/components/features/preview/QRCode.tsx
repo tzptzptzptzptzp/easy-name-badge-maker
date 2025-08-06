@@ -10,7 +10,7 @@ const SIZE = 72;
 
 export const PreviewQRCode = () => {
   const { scale } = useConfig();
-  const { iconUrl } = useUserStore();
+  const { iconUrl, profileUrl } = useUserStore();
   const [defaultImageDataUrl, setDefaultImageDataUrl] = useState<string | null>(
     null
   );
@@ -37,6 +37,9 @@ export const PreviewQRCode = () => {
   // ユーザーが選択した画像があればそれを使用、なければデフォルト画像を使用
   const qrCodeImageSrc = iconUrl || defaultImageDataUrl;
 
+  // ユーザーが設定したURLがあればそれを使用、なければデフォルトURLを使用
+  const qrCodeUrl = profileUrl || DEFAULT_USER_URL;
+
   return (
     <div
       className="absolute"
@@ -48,7 +51,7 @@ export const PreviewQRCode = () => {
       }}
     >
       <QRCodeSVG
-        value={DEFAULT_USER_URL}
+        value={qrCodeUrl}
         size={scale(SIZE)}
         bgColor={"var(--theme-background-color)"}
         fgColor={"var(--theme-font-color)"}
@@ -59,8 +62,8 @@ export const PreviewQRCode = () => {
                 src: qrCodeImageSrc,
                 x: undefined,
                 y: undefined,
-                height: scale(18),
-                width: scale(18),
+                height: scale(16),
+                width: scale(16),
                 opacity: 1,
                 excavate: true,
               }
