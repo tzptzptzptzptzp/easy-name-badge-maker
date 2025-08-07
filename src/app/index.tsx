@@ -2,21 +2,13 @@
 import { useRef } from "react";
 import { Editor } from "@/components/features/editor";
 import { Preview } from "@/components/features/preview";
-import { useConfig } from "@/hooks/useConfig";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 export const HomeIndex = () => {
-  const { themeColor } = useConfig();
   const previewRef = useRef<HTMLDivElement>(null);
 
   return (
-    <>
-      <style>{`
-        :root {
-            --theme-main-color: ${themeColor.mainColor};
-            --theme-background-color: ${themeColor.backgroundColor};
-            --theme-font-color: ${themeColor.fontColor};
-        }
-      `}</style>
+    <ThemeProvider>
       <main className="flex items-center justify-around h-dvh">
         <div>
           <Preview ref={previewRef} />
@@ -25,6 +17,6 @@ export const HomeIndex = () => {
           <Editor previewRef={previewRef} />
         </div>
       </main>
-    </>
+    </ThemeProvider>
   );
 };

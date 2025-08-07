@@ -1,5 +1,6 @@
 "use client";
 import { useConfig } from "@/hooks/useConfig";
+import { useUserStore } from "@/hooks/useUserStore";
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 
@@ -9,28 +10,35 @@ const SIZE = 72;
 
 export const PreviewQRCode = () => {
   const { scale } = useConfig();
-  const [imageDataUrl, setImageDataUrl] = useState<string | null>(null);
+  const { iconUrl, profileUrl } = useUserStore();
+  const [defaultImageDataUrl, setDefaultImageDataUrl] = useState<string | null>(
+    null
+  );
 
   useEffect(() => {
-    // 画像をData URLに変換
-    const loadImageAsDataUrl = async () => {
+    // デフォルト画像をData URLに変換
+    const loadDefaultImageAsDataUrl = async () => {
       try {
         const response = await fetch("/images/bsj/bisyojo_chan_00.png");
         const blob = await response.blob();
         const reader = new FileReader();
         reader.onload = () => {
-          setImageDataUrl(reader.result as string);
+          setDefaultImageDataUrl(reader.result as string);
         };
         reader.readAsDataURL(blob);
       } catch (error) {
-        console.error("画像の読み込みに失敗しました:", error);
+        console.error("デフォルト画像の読み込みに失敗しました:", error);
       }
     };
 
-    loadImageAsDataUrl();
+    loadDefaultImageAsDataUrl();
   }, []);
 
-  console.log("QRCode Image Data URL available:", !!imageDataUrl);
+  // ユーザーが選択した画像があればそれを使用、なければデフォルト画像を使用
+  const qrCodeImageSrc = iconUrl || defaultImageDataUrl;
+
+  // ユーザーが設定したURLがあればそれを使用、なければデフォルトURLを使用
+  const qrCodeUrl = profileUrl || DEFAULT_USER_URL;
 
   return (
     <div
@@ -43,19 +51,19 @@ export const PreviewQRCode = () => {
       }}
     >
       <QRCodeSVG
-        value={DEFAULT_USER_URL}
+        value={qrCodeUrl}
         size={scale(SIZE)}
         bgColor={"var(--theme-background-color)"}
         fgColor={"var(--theme-font-color)"}
         level={"L"}
         imageSettings={
-          imageDataUrl
+          qrCodeImageSrc
             ? {
-                src: imageDataUrl,
+                src: qrCodeImageSrc,
                 x: undefined,
                 y: undefined,
-                height: scale(18),
-                width: scale(18),
+                height: scale(16),
+                width: scale(16),
                 opacity: 1,
                 excavate: true,
               }

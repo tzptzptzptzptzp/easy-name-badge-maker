@@ -1,11 +1,69 @@
 import type { Metadata } from "next";
-import { M_PLUS_Rounded_1c } from "next/font/google";
+import {
+  M_PLUS_Rounded_1c,
+  Kaisei_Decol,
+  Yuji_Syuku,
+  Yusei_Magic,
+  Zen_Antique,
+  Dela_Gothic_One,
+  Mochiy_Pop_One,
+  Rampart_One,
+  RocknRoll_One,
+} from "next/font/google";
 import "../styles/globals.css";
 
 const mPlusRounded = M_PLUS_Rounded_1c({
   variable: "--font-m-plus-rounded",
   subsets: ["latin"],
   weight: ["400", "800"],
+});
+
+const kaiseiDecol = Kaisei_Decol({
+  variable: "--font-kaisei-decol",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
+
+const yujiSyuku = Yuji_Syuku({
+  variable: "--font-yuji-syuku",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const yuseiMagic = Yusei_Magic({
+  variable: "--font-yusei-magic",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const zenAntique = Zen_Antique({
+  variable: "--font-zen-antique",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const delaGothicOne = Dela_Gothic_One({
+  variable: "--font-dela-gothic-one",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const mochiyPopOne = Mochiy_Pop_One({
+  variable: "--font-mochiy-pop-one",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const rampartOne = Rampart_One({
+  variable: "--font-rampart-one",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const rocknRollOne = RocknRoll_One({
+  variable: "--font-rocknroll-one",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +78,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${mPlusRounded.variable} text-text antialiased`}>
+      <body
+        className={`${mPlusRounded.variable} ${kaiseiDecol.variable} ${yujiSyuku.variable} ${yuseiMagic.variable} ${zenAntique.variable} ${delaGothicOne.variable} ${mochiyPopOne.variable} ${rampartOne.variable} ${rocknRollOne.variable} text-text antialiased`}
+      >
         {children}
       </body>
     </html>

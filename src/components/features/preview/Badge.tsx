@@ -1,9 +1,15 @@
 "use client";
 import { useConfig } from "@/hooks/useConfig";
-import Image from "next/image";
+import { useUserStore } from "@/hooks/useUserStore";
 
 export const PreviewBadge = () => {
   const { scale } = useConfig();
+  const { badgeImage } = useUserStore();
+
+  // "none"が選択された場合はバッジを表示しない
+  if (badgeImage === "none") {
+    return null;
+  }
 
   return (
     <div
@@ -15,8 +21,9 @@ export const PreviewBadge = () => {
         height: scale(65),
       }}
     >
-      <Image
-        src={"/images/badge/badge-01.jpg"}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`/images/badge/${badgeImage}.jpg`}
         alt="バッジ"
         width={scale(60) * 2}
         height={scale(60) * 2}
