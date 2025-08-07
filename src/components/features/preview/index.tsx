@@ -52,7 +52,7 @@ export const Preview = forwardRef<HTMLDivElement>((_, ref) => {
     <div
       id="target-component"
       ref={ref}
-      className={`flex flex-col relative shadow-xl ${fontClass}`}
+      className={`flex flex-col relative overflow-hidden shadow-xl ${fontClass}`}
       style={{
         width: scaledFrameSize.width,
         height: scaledFrameSize.height,

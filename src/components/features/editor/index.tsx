@@ -14,6 +14,7 @@ import { EditorGakuchoSelect } from "./GakuchoSelect";
 import { EditorBadgeSelect } from "./BadgeSelect";
 import { EditorPatternSelect } from "./PatternSelect";
 import { EditorRankRadio } from "./RankRadio";
+import { EditorIconTypeSelect } from "./IconTypeSelect";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -28,15 +29,16 @@ export const Editor = ({ previewRef }: EditorProps) => {
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <EditorHeader />
-      <div className="flex flex-col gap-2 h-full p-4">
+      <div className="flex flex-col gap-2 overflow-y-scroll h-full p-4">
         <EditorThemeSelect />
         <EditorPatternSelect />
         <EditorFontSelect />
         <EditorBadgeSelect />
         <EditorGakuchoSelect />
-        <EditorIconInput />
-        <EditorNameInput />
         <EditorRankRadio />
+        <EditorIconInput />
+        <EditorIconTypeSelect />
+        <EditorNameInput />
         <EditorActivityInput />
         <EditorProfileUrlButton />
         <EditorCommentInput />
