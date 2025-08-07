@@ -18,7 +18,7 @@ export const PreviewName = () => {
       }}
     >
       <div
-        className="absolute inset-0 -z-10 w-full h-full opacity-70"
+        className="absolute inset-0 -z-10 w-full h-full opacity-90"
         style={{ backgroundColor: "var(--theme-background-color)" }}
       />
       <div>
