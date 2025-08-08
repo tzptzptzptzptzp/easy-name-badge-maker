@@ -5,6 +5,7 @@ type User = {
   theme: string;
   font: string;
   name: string;
+  nameSize: string;
   activity: string;
   iconUrl: string | null;
   profileUrl: string;
@@ -21,6 +22,7 @@ type UserStore = User & {
   setTheme: (theme: string) => void;
   setFont: (font: string) => void;
   setName: (name: string) => void;
+  setNameSize: (nameSize: string) => void;
   setActivity: (activity: string) => void;
   setIconUrl: (iconUrl: string | null) => void;
   setProfileUrl: (profileUrl: string) => void;
@@ -39,6 +41,7 @@ export const useUserStore = create<UserStore>()(
       theme: "default",
       font: "default",
       name: "",
+      nameSize: "medium",
       activity: "",
       iconUrl: null,
       profileUrl: "",
@@ -52,6 +55,7 @@ export const useUserStore = create<UserStore>()(
       setTheme: (theme: string) => set({ theme }),
       setFont: (font: string) => set({ font }),
       setName: (name: string) => set({ name }),
+      setNameSize: (nameSize: string) => set({ nameSize }),
       setActivity: (activity: string) => set({ activity }),
       setIconUrl: (iconUrl: string | null) => set({ iconUrl }),
       setProfileUrl: (profileUrl: string) => set({ profileUrl }),

@@ -3,6 +3,7 @@ import { useConfig } from "@/hooks/useConfig";
 import { EditorHeader } from "./Header";
 import { EditorFooter } from "./Footer";
 import { EditorNameInput } from "./NameInput";
+import { EditorNameSizeSelect } from "./NameSizeSelect";
 import { EditorActivityInput } from "./ActivityInput";
 import { EditorCommentInput } from "./CommentInput";
 import { EditorThemeSelect } from "./ThemeSelect";
@@ -36,6 +37,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
         <EditorIconInput />
         <EditorIconTypeSelect />
         <EditorNameInput />
+        <EditorNameSizeSelect />
         <EditorRankRadio />
         <EditorBadgeSelect />
         <EditorActivityInput />
