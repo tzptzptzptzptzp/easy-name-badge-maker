@@ -33,15 +33,15 @@ export const Editor = ({ previewRef }: EditorProps) => {
         <EditorThemeSelect />
         <EditorPatternSelect />
         <EditorFontSelect />
-        <EditorBadgeSelect />
-        <EditorGakuchoSelect />
-        <EditorRankRadio />
         <EditorIconInput />
         <EditorIconTypeSelect />
         <EditorNameInput />
+        <EditorRankRadio />
+        <EditorBadgeSelect />
         <EditorActivityInput />
         <EditorProfileUrlButton />
         <EditorCommentInput />
+        <EditorGakuchoSelect />
         <EditorPrRadio />
       </div>
       <EditorFooter previewRef={previewRef} />
