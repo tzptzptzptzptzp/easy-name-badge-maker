@@ -21,7 +21,7 @@ export const EditorHeader = () => {
           <div className="flex items-center justify-between">
             <h2 className="text-[20px]">簡単名札メーカー</h2>
             <Link
-              href="https://libecity.com/room_list?room_id=fBBdLqlMwKqcQO4SSY3a&comment_id=tSU0SNuPhEkEoax5UKQD"
+              href="https://library.libecity.com/articles/01K24XV7HMQ3GQVM4F9JSTHJ71"
               className="px-0.5 py-px border-b text-[14px]"
               target="_blank"
               rel="noopener noreferrer"
