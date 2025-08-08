@@ -13,6 +13,8 @@ type User = {
   prEnabled: boolean;
   gakuchoImage: string;
   badgeImage: string;
+  badgeTopLeft: string;
+  badgeTopRight: string;
   patternImage: string;
   rankIcon: string;
   iconType: string;
@@ -30,6 +32,8 @@ type UserStore = User & {
   setPrEnabled: (prEnabled: boolean) => void;
   setGakuchoImage: (gakuchoImage: string) => void;
   setBadgeImage: (badgeImage: string) => void;
+  setBadgeTopLeft: (badgeTopLeft: string) => void;
+  setBadgeTopRight: (badgeTopRight: string) => void;
   setPatternImage: (patternImage: string) => void;
   setRankIcon: (rankIcon: string) => void;
   setIconType: (iconType: string) => void;
@@ -49,6 +53,8 @@ export const useUserStore = create<UserStore>()(
       prEnabled: false,
       gakuchoImage: "jump",
       badgeImage: "none",
+      badgeTopLeft: "none",
+      badgeTopRight: "none",
       patternImage: "none",
       rankIcon: "none",
       iconType: "circle",
@@ -63,6 +69,8 @@ export const useUserStore = create<UserStore>()(
       setPrEnabled: (prEnabled: boolean) => set({ prEnabled }),
       setGakuchoImage: (gakuchoImage: string) => set({ gakuchoImage }),
       setBadgeImage: (badgeImage: string) => set({ badgeImage }),
+      setBadgeTopLeft: (badgeTopLeft: string) => set({ badgeTopLeft }),
+      setBadgeTopRight: (badgeTopRight: string) => set({ badgeTopRight }),
       setPatternImage: (patternImage: string) => set({ patternImage }),
       setRankIcon: (rankIcon: string) => set({ rankIcon }),
       setIconType: (iconType: string) => set({ iconType }),
