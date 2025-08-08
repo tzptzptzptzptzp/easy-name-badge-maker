@@ -26,7 +26,7 @@ export const HomeIndex = () => {
                 alt="背景"
                 width={600}
                 height={338}
-                className="absolute inset-0 z-0 w-full h-full object-cover blur-xs"
+                className="absolute inset-0 z-0 w-full h-full object-cover blur-xs pointer-events-none select-none"
                 unoptimized
               />
               <Preview ref={previewRef} />
