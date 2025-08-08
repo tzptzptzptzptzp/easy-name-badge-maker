@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal } from "@/components/elements";
 import { Button } from "@/components/elements";
 import { Input } from "@/components/forms";
+import { useUrlStore } from "@/hooks/useUrlStore";
 
 interface ProfileUrlModalProps {
   isOpen: boolean;
@@ -16,6 +17,7 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
   onSubmit,
   currentUrl = "",
 }) => {
+  const { urls, addUrl } = useUrlStore();
   const [url, setUrl] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -49,6 +51,11 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
 
       // 実際の保存処理を実行
       onSubmit(url);
+
+      // URLを配列に追加（同一URLが存在しない場合のみ）
+      if (url && !urls.includes(url)) {
+        addUrl(url);
+      }
 
       // 少し遅延させてから保存完了状態を表示
       setTimeout(() => {
