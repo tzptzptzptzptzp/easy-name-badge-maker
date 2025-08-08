@@ -17,11 +17,16 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
   onSubmit,
   currentUrl = "",
 }) => {
-  const { urls, addUrl } = useUrlStore();
+  const { urls, addUrl, getStatus } = useUrlStore();
   const [url, setUrl] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const [isRestricted, setIsRestricted] = useState(false);
+
+  const status = getStatus();
+  const isWarning = status === "warning";
+  const isLimited = status === "limited";
 
   const validateUrl = (value: string) => {
     if (!value) {
@@ -49,25 +54,55 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
     if (validateUrl(url)) {
       setIsSaving(true);
 
-      // 実際の保存処理を実行
-      onSubmit(url);
+      // URLを配列に追加（同一URLが存在しない場合のみ、クエリパラメータを無視して比較・保存）
+      let shouldCompleteSubmit = true;
 
-      // URLを配列に追加（同一URLが存在しない場合のみ）
-      if (url && !urls.includes(url)) {
-        addUrl(url);
+      if (url) {
+        const normalizeUrl = (urlString: string) => {
+          try {
+            const urlObj = new URL(urlString);
+            return `${urlObj.protocol}//${urlObj.host}${urlObj.pathname}`;
+          } catch {
+            return urlString;
+          }
+        };
+
+        const normalizedNewUrl = normalizeUrl(url);
+        const isDuplicate = urls.some(
+          (existingUrl) => normalizeUrl(existingUrl) === normalizedNewUrl
+        );
+
+        if (!isDuplicate) {
+          // クエリパラメータを除外した正規化されたURLを保存
+          addUrl(normalizedNewUrl);
+
+          // URLが2つ（warning状態）の時に3つ目を追加する場合は保存を完了させない
+          if (isWarning) {
+            shouldCompleteSubmit = false;
+            setIsRestricted(true);
+          }
+        }
       }
 
-      // 少し遅延させてから保存完了状態を表示
-      setTimeout(() => {
-        setIsSaving(false);
-        setIsSaved(true);
+      // 保存を完了する場合のみ実際の保存処理を実行
+      if (shouldCompleteSubmit) {
+        onSubmit(url);
 
-        // 1.5秒後にモーダルを閉じる
+        // 少し遅延させてから保存完了状態を表示
         setTimeout(() => {
-          setIsSaved(false);
-          onClose();
-        }, 1500);
-      }, 300);
+          setIsSaving(false);
+          setIsSaved(true);
+
+          // 1.5秒後にモーダルを閉じる
+          setTimeout(() => {
+            setIsSaved(false);
+            onClose();
+          }, 1500);
+        }, 300);
+      } else {
+        // 保存を完了しない場合は即座に状態をリセット
+        setIsSaving(false);
+      }
     }
   };
 
@@ -76,6 +111,7 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
     setIsValid(true);
     setIsSaving(false);
     setIsSaved(false);
+    setIsRestricted(false);
     onClose();
   };
 
@@ -86,11 +122,13 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
       setIsSaved(false);
       setIsSaving(false);
       setIsValid(true);
+      setIsRestricted(false);
     } else {
       // モーダルが閉じられた時に状態をリセット
       setIsSaved(false);
       setIsSaving(false);
       setIsValid(true);
+      setIsRestricted(false);
     }
   }, [isOpen, currentUrl]);
 
@@ -109,6 +147,12 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
           <h3 className="text-sm font-bold text-yellow-800 mb-2">注意事項</h3>
           <ul className="text-xs text-yellow-700 space-y-1">
             <li>• 名札を作成できるのは自分の名札のみです</li>
+            {(isWarning || isLimited) && (
+              <li>
+                • 自分以外の名札を作成すると利用が制限される場合があります
+              </li>
+            )}
+            {isLimited && <li>• 利用制限中のためURLの変更ができません</li>}
           </ul>
         </div>
 
@@ -137,7 +181,7 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
             onChange={handleChange}
             placeholder="https://libecity.com/user_profile/mbYh4qxQ0ccrVkDs5H9DhwYG08w1"
             className={`w-full ${!isValid ? "border-red-500" : ""}`}
-            disabled={isSaving || isSaved}
+            disabled={isSaving || isSaved || isLimited}
           />
           {!isValid && (
             <p className="text-red-500 text-xs mt-1">
@@ -163,8 +207,34 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
                   />
                 </svg>
               </div>
-              <span className="text-sm font-medium text-emerald-600">
+              <span className="text-sm font-bold text-emerald-600">
                 保存しました！
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* 制限メッセージ */}
+        {isRestricted && (
+          <div className="bg-red-50 border-2 border-red-200 rounded-md p-3">
+            <div className="flex items-center">
+              <div className="text-red-600 mr-2">
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <span className="text-sm font-bold text-red-600">
+                利用制限が適用されました
+                <br />
+                これ以上のURL変更はできません
               </span>
             </div>
           </div>
@@ -183,7 +253,7 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
           </Button>
           <Button
             onClick={handleSubmit}
-            disabled={!isValid || isSaving || isSaved}
+            disabled={!isValid || isSaving || isSaved || isLimited}
             size="sm"
             className="flex-1"
           >
