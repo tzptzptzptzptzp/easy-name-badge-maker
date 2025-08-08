@@ -6,6 +6,7 @@ import { Preview } from "@/components/features/preview";
 import { ThemeProvider, StoreHydrationProvider } from "@/components/providers";
 import { LimitedAccess } from "@/components/elements";
 import { useAccessControl } from "@/hooks/useAccessControl";
+import { ProducedBy } from "@/components/features/Producer/ProducedBy";
 
 export const HomeIndex = () => {
   const previewRef = useRef<HTMLDivElement>(null);
@@ -28,6 +29,7 @@ export const HomeIndex = () => {
             />
             <Preview ref={previewRef} />
             <Editor previewRef={previewRef} />
+            <ProducedBy />
           </main>
         )}
       </ThemeProvider>
