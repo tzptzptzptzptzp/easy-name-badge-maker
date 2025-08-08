@@ -22,7 +22,7 @@ export const EditorFooter = ({ previewRef }: EditorFooterProps) => {
   };
 
   return (
-    <div className="flex justify-center p-4">
+    <div className="flex justify-center p-4 pb-5">
       <Button onClick={handleSaveImage} disabled={isSaving}>
         {isSaving ? "保存中..." : "画像を保存"}
       </Button>

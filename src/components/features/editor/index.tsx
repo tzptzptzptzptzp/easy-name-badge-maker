@@ -28,7 +28,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
 
   return (
     <div
-      className="flex flex-col relative border-[3px] rounded-3xl border-main shadow-xl leading-none font-m-plus-rounded"
+      className="flex flex-col relative border-[3px] rounded-3xl border-main bg-white/50 shadow-xl leading-none font-m-plus-rounded"
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <EditorHeader />

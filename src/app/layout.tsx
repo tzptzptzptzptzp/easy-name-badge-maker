@@ -79,7 +79,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${mPlusRounded.variable} ${kaiseiDecol.variable} ${yujiSyuku.variable} ${yuseiMagic.variable} ${zenAntique.variable} ${delaGothicOne.variable} ${mochiyPopOne.variable} ${rampartOne.variable} ${rocknRollOne.variable} text-text antialiased`}
+        className={`${mPlusRounded.variable} ${kaiseiDecol.variable} ${yujiSyuku.variable} ${yuseiMagic.variable} ${zenAntique.variable} ${delaGothicOne.variable} ${mochiyPopOne.variable} ${rampartOne.variable} ${rocknRollOne.variable} overflow-hidden text-text antialiased`}
       >
         {children}
       </body>
