@@ -14,6 +14,7 @@
 
 @theme {
   --color-main: #79a1d4;
+  --color-sub: #ee8b97;
   --color-text: var(--foreground);
 }
 

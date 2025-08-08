@@ -15,7 +15,11 @@ export const EditorFrameFes2025Radio = () => {
   };
 
   return (
-    <FormElement label="フェステーマ" htmlFor="frame-fes-2025">
+    <FormElement
+      label="フェステーマ"
+      htmlFor="frame-fes-2025"
+      labelClassName="text-sub"
+    >
       <Radio
         id="frame-fes-2025"
         options={options}

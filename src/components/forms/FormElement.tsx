@@ -7,6 +7,7 @@ type Props = {
   children: React.ReactNode;
   onlyCustom?: boolean;
   htmlFor?: string;
+  labelClassName?: string;
 };
 
 export const FormElement = ({
@@ -14,6 +15,7 @@ export const FormElement = ({
   children,
   onlyCustom,
   htmlFor,
+  labelClassName,
 }: Props) => {
   const { mode } = useModeStore();
   const isSimple = mode === "simple";
@@ -24,7 +26,7 @@ export const FormElement = ({
     <div className="flex items-center justify-between">
       <label
         htmlFor={htmlFor}
-        className={cn("w-1/3", onlyCustom && "text-main")}
+        className={cn("w-1/3", onlyCustom && "text-main", labelClassName)}
       >
         {label}
       </label>
