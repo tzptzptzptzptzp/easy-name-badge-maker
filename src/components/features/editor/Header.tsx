@@ -14,13 +14,18 @@ export const EditorHeader = () => {
     }
   };
   return (
-    <div>
+    <div className="mb-5">
       <div className="flex items-end justify-between w-full p-4">
         <div className="flex flex-col w-full">
           <p className="text-[12px]">非公式</p>
           <div className="flex items-center justify-between">
             <h2 className="text-[20px]">簡単名札メーカー</h2>
-            <Link href="#" className="px-0.5 py-px border-b text-[14px]">
+            <Link
+              href="https://library.libecity.com/articles/01K24XV7HMQ3GQVM4F9JSTHJ71"
+              className="px-0.5 py-px border-b text-[14px]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               使い方
             </Link>
           </div>

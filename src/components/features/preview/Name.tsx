@@ -4,16 +4,64 @@ import { useUserStore } from "@/hooks/useUserStore";
 
 const PLACEHOLDER_NAME = "てづっぴ（美少女）";
 
+// サイズごとの設定
+const getSizeConfig = (size: string) => {
+  switch (size) {
+    case "small":
+      return {
+        fontMultiplier: 1,
+        height: 60,
+        layout: "horizontal", // 横並び
+        showLabel: true, // 「名前」表示
+      };
+    case "medium":
+      return {
+        fontMultiplier: 1.35,
+        height: 80,
+        layout: "vertical", // 縦並び
+        showLabel: true, // 「名前」表示
+      };
+    case "large":
+      return {
+        fontMultiplier: 1.6,
+        height: 80,
+        layout: "vertical", // 縦並び
+        showLabel: false, // 「名前」非表示
+      };
+    case "ex-large":
+      return {
+        fontMultiplier: 2,
+        height: 80,
+        layout: "vertical", // 縦並び
+        showLabel: false, // 「名前」非表示
+      };
+    default:
+      return {
+        fontMultiplier: 1.0,
+        height: 60,
+        layout: "horizontal",
+        showLabel: true,
+      };
+  }
+};
+
 export const PreviewName = () => {
   const { scale } = useConfig();
-  const { name, rankIcon } = useUserStore();
+  const { name, nameSize, rankIcon } = useUserStore();
+
+  const sizeConfig = getSizeConfig(nameSize);
+  const isDefault = nameSize === "small";
 
   return (
     <div
-      className="flex items-center gap-3 absolute left-1/2 z-0 -translate-1/2 overflow-hidden w-[90%] px-3 pt-1 border-b-2 border-dashed"
+      className={`flex items-center gap-x-3 gap-y-1.5 absolute left-1/2 z-0 -translate-x-1/2 -translate-y-full overflow-hidden w-[90%] px-3 pt-1 border-b-2 border-dashed ${
+        sizeConfig.layout === "horizontal"
+          ? "flex-row"
+          : "flex-col justify-center"
+      }`}
       style={{
-        top: scale(312),
-        height: scale(60),
+        top: scale(342),
+        height: scale(sizeConfig.height),
         borderColor: "var(--theme-font-color)",
       }}
     >
@@ -21,21 +69,23 @@ export const PreviewName = () => {
         className="absolute inset-0 -z-10 w-full h-full opacity-90"
         style={{ backgroundColor: "var(--theme-background-color)" }}
       />
-      <div>
-        <p
-          className="whitespace-nowrap"
-          style={{
-            fontSize: scale(25),
-          }}
-        >
-          名前
-        </p>
-      </div>
+      {sizeConfig.showLabel && (
+        <div>
+          <p
+            className="whitespace-nowrap"
+            style={{
+              fontSize: scale(isDefault ? 25 : 16),
+            }}
+          >
+            名前
+          </p>
+        </div>
+      )}
       <div className="flex items-center gap-2 overflow-hidden">
         <p
           className="whitespace-nowrap"
           style={{
-            fontSize: scale(25),
+            fontSize: scale(25 * sizeConfig.fontMultiplier),
           }}
         >
           {name.length > 0 ? name : PLACEHOLDER_NAME}
@@ -46,8 +96,8 @@ export const PreviewName = () => {
             <img
               src={`/images/rank/${rankIcon}.png`}
               alt="会員アイコン"
-              width={scale(28)}
-              height={scale(28)}
+              width={scale(28 * sizeConfig.fontMultiplier)}
+              height={scale(28 * sizeConfig.fontMultiplier)}
               className="h-auto object-cover"
             />
           </div>

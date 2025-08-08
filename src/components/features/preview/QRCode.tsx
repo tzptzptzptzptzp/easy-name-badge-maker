@@ -10,10 +10,12 @@ const SIZE = 72;
 
 export const PreviewQRCode = () => {
   const { scale } = useConfig();
-  const { iconUrl, profileUrl } = useUserStore();
+  const { iconUrl, profileUrl, qrCodeImageEnabled } = useUserStore();
   const [defaultImageDataUrl, setDefaultImageDataUrl] = useState<string | null>(
     null
   );
+
+  const qrCodeSize = scale(25);
 
   useEffect(() => {
     // デフォルト画像をData URLに変換
@@ -55,15 +57,15 @@ export const PreviewQRCode = () => {
         size={scale(SIZE)}
         bgColor={"var(--theme-background-color)"}
         fgColor={"var(--theme-font-color)"}
-        level={"L"}
+        level={"Q"}
         imageSettings={
-          qrCodeImageSrc
+          qrCodeImageSrc && qrCodeImageEnabled
             ? {
                 src: qrCodeImageSrc,
                 x: undefined,
                 y: undefined,
-                height: scale(16),
-                width: scale(16),
+                height: qrCodeSize,
+                width: qrCodeSize,
                 opacity: 1,
                 excavate: true,
               }

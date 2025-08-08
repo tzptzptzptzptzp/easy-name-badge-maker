@@ -13,6 +13,7 @@ import { PreviewMakerLogo } from "./MakerLogo";
 import { PreviewGakucho } from "./Gakucho";
 import { PreviewQRCode } from "./QRCode";
 import { PreviewPattern } from "./Pattern";
+import { PreviewFrameFes2025 } from "./FrameFes2025";
 
 export const Preview = forwardRef<HTMLDivElement>((_, ref) => {
   const { scaledFrameSize } = useConfig();
@@ -73,6 +74,7 @@ export const Preview = forwardRef<HTMLDivElement>((_, ref) => {
         <PreviewGakucho />
         <PreviewQRCode />
       </div>
+      <PreviewFrameFes2025 />
     </div>
   );
 });

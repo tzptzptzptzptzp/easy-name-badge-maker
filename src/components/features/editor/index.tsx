@@ -3,6 +3,7 @@ import { useConfig } from "@/hooks/useConfig";
 import { EditorHeader } from "./Header";
 import { EditorFooter } from "./Footer";
 import { EditorNameInput } from "./NameInput";
+import { EditorNameSizeSelect } from "./NameSizeSelect";
 import { EditorActivityInput } from "./ActivityInput";
 import { EditorCommentInput } from "./CommentInput";
 import { EditorThemeSelect } from "./ThemeSelect";
@@ -15,6 +16,8 @@ import { EditorBadgeSelect } from "./BadgeSelect";
 import { EditorPatternSelect } from "./PatternSelect";
 import { EditorRankRadio } from "./RankRadio";
 import { EditorIconTypeSelect } from "./IconTypeSelect";
+import { EditorFrameFes2025Radio } from "./FrameFes2025Radio";
+import { EditorQRCodeImageRadio } from "./QRCodeImageRadio";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -25,23 +28,26 @@ export const Editor = ({ previewRef }: EditorProps) => {
 
   return (
     <div
-      className="flex flex-col relative border-[3px] rounded-3xl border-main shadow-xl leading-none font-m-plus-rounded"
+      className="flex flex-col relative border-[3px] rounded-3xl border-main bg-white/50 shadow-xl leading-none font-m-plus-rounded"
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <EditorHeader />
-      <div className="flex flex-col gap-2 overflow-y-scroll h-full p-4">
+      <div className="flex flex-col gap-2 overflow-y-scroll h-full px-4">
+        <EditorFrameFes2025Radio />
         <EditorThemeSelect />
         <EditorPatternSelect />
         <EditorFontSelect />
-        <EditorBadgeSelect />
-        <EditorGakuchoSelect />
-        <EditorRankRadio />
         <EditorIconInput />
         <EditorIconTypeSelect />
         <EditorNameInput />
+        <EditorNameSizeSelect />
+        <EditorRankRadio />
+        <EditorBadgeSelect />
         <EditorActivityInput />
         <EditorProfileUrlButton />
+        <EditorQRCodeImageRadio />
         <EditorCommentInput />
+        <EditorGakuchoSelect />
         <EditorPrRadio />
       </div>
       <EditorFooter previewRef={previewRef} />

@@ -4,7 +4,7 @@ import { useUserStore } from "@/hooks/useUserStore";
 
 export const PreviewActivity = () => {
   const { scale } = useConfig();
-  const { activity } = useUserStore();
+  const { activity, activityLabel } = useUserStore();
 
   return (
     <div
@@ -26,7 +26,7 @@ export const PreviewActivity = () => {
             fontSize: scale(25),
           }}
         >
-          専攻
+          {activityLabel}
         </p>
       </div>
       <div className="overflow-hidden">
@@ -36,7 +36,7 @@ export const PreviewActivity = () => {
             fontSize: scale(25),
           }}
         >
-          {activity || "専攻を入力してください"}
+          {activity || `${activityLabel}を入力してね！`}
         </p>
       </div>
     </div>
