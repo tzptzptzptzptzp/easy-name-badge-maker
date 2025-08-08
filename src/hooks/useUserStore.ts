@@ -49,7 +49,7 @@ export const useUserStore = create<UserStore>()(
       theme: "default",
       font: "default",
       name: "",
-      nameSize: "medium",
+      nameSize: "small",
       activity: "",
       activityLabel: "専攻",
       iconUrl: null,

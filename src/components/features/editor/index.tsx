@@ -31,7 +31,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
       style={{ width: scaledFrameSize.width, height: scaledFrameSize.height }}
     >
       <EditorHeader />
-      <div className="flex flex-col gap-2 overflow-y-scroll h-full p-4">
+      <div className="flex flex-col gap-2 overflow-y-scroll h-full px-4">
         <EditorFrameFes2025Radio />
         <EditorThemeSelect />
         <EditorPatternSelect />

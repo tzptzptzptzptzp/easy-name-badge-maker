@@ -14,7 +14,7 @@ export const EditorHeader = () => {
     }
   };
   return (
-    <div>
+    <div className="mb-5">
       <div className="flex items-end justify-between w-full p-4">
         <div className="flex flex-col w-full">
           <p className="text-[12px]">非公式</p>

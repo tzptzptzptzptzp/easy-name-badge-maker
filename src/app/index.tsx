@@ -16,7 +16,7 @@ export const HomeIndex = () => {
         {isLimited ? (
           <LimitedAccess />
         ) : (
-          <main className="flex items-center justify-around h-dvh">
+          <main className="flex items-center justify-center gap-24 h-dvh">
             <div>
               <Preview ref={previewRef} />
             </div>
