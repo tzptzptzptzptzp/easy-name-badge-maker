@@ -20,7 +20,12 @@ export const EditorHeader = () => {
           <p className="text-[12px]">非公式</p>
           <div className="flex items-center justify-between">
             <h2 className="text-[20px]">簡単名札メーカー</h2>
-            <Link href="#" className="px-0.5 py-px border-b text-[14px]">
+            <Link
+              href="https://libecity.com/room_list?room_id=fBBdLqlMwKqcQO4SSY3a&comment_id=tSU0SNuPhEkEoax5UKQD"
+              className="px-0.5 py-px border-b text-[14px]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               使い方
             </Link>
           </div>
