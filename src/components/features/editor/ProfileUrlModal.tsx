@@ -55,7 +55,7 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
       setIsSaving(true);
 
       // URLを配列に追加（同一URLが存在しない場合のみ、クエリパラメータを無視して比較・保存）
-      let shouldCompleteSubmit = true;
+      let shouldShowRestriction = false;
 
       if (url) {
         const normalizeUrl = (urlString: string) => {
@@ -73,19 +73,69 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
         );
 
         if (!isDuplicate) {
-          // クエリパラメータを除外した正規化されたURLを保存
-          addUrl(normalizedNewUrl);
-
-          // URLが2つ（warning状態）の時に3つ目を追加する場合は保存を完了させない
+          // URLが2つ（warning状態）の時に3つ目を追加する場合は制限メッセージを表示
           if (isWarning) {
-            shouldCompleteSubmit = false;
-            setIsRestricted(true);
+            shouldShowRestriction = true;
           }
         }
       }
 
-      // 保存を完了する場合のみ実際の保存処理を実行
-      if (shouldCompleteSubmit) {
+      if (shouldShowRestriction) {
+        // 制限メッセージを表示
+        setIsSaving(false);
+        setIsRestricted(true);
+
+        // 3秒後にURLを保存して処理を完了
+        setTimeout(() => {
+          const normalizeUrl = (urlString: string) => {
+            try {
+              const urlObj = new URL(urlString);
+              return `${urlObj.protocol}//${urlObj.host}${urlObj.pathname}`;
+            } catch {
+              return urlString;
+            }
+          };
+
+          // クエリパラメータを除外した正規化されたURLを保存
+          if (url) {
+            const normalizedNewUrl = normalizeUrl(url);
+            addUrl(normalizedNewUrl);
+          }
+
+          // 実際の保存処理を実行
+          onSubmit(url);
+
+          setIsSaved(true);
+          setIsRestricted(false);
+
+          // 1.5秒後にモーダルを閉じる
+          setTimeout(() => {
+            setIsSaved(false);
+            onClose();
+          }, 1500);
+        }, 3000);
+      } else {
+        // 通常の保存処理
+        if (url) {
+          const normalizeUrl = (urlString: string) => {
+            try {
+              const urlObj = new URL(urlString);
+              return `${urlObj.protocol}//${urlObj.host}${urlObj.pathname}`;
+            } catch {
+              return urlString;
+            }
+          };
+
+          const normalizedNewUrl = normalizeUrl(url);
+          const isDuplicate = urls.some(
+            (existingUrl) => normalizeUrl(existingUrl) === normalizedNewUrl
+          );
+
+          if (!isDuplicate) {
+            addUrl(normalizedNewUrl);
+          }
+        }
+
         onSubmit(url);
 
         // 少し遅延させてから保存完了状態を表示
@@ -99,9 +149,6 @@ export const ProfileUrlModal: React.FC<ProfileUrlModalProps> = ({
             onClose();
           }, 1500);
         }, 300);
-      } else {
-        // 保存を完了しない場合は即座に状態をリセット
-        setIsSaving(false);
       }
     }
   };
