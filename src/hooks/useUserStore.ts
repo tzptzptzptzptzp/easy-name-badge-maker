@@ -1,6 +1,28 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+const initialState = {
+  theme: "default",
+  font: "default",
+  name: "",
+  nameSize: "small",
+  activity: "",
+  activityLabel: "専攻",
+  iconUrl: null,
+  profileUrl: "",
+  comment: "",
+  prEnabled: false,
+  frameFes2025Enabled: false,
+  gakuchoImage: "jump",
+  badgeImage: "none",
+  badgeTopLeft: "none",
+  badgeTopRight: "none",
+  patternImage: "none",
+  rankIcon: "none",
+  iconType: "circle",
+  qrCodeImageEnabled: true,
+};
+
 type User = {
   theme: string;
   font: string;
@@ -43,30 +65,13 @@ type UserStore = User & {
   setRankIcon: (rankIcon: string) => void;
   setIconType: (iconType: string) => void;
   setQrCodeImageEnabled: (qrCodeImageEnabled: boolean) => void;
+  resetStore: () => void;
 };
 
 export const useUserStore = create<UserStore>()(
   persist(
     (set) => ({
-      theme: "default",
-      font: "default",
-      name: "",
-      nameSize: "small",
-      activity: "",
-      activityLabel: "専攻",
-      iconUrl: null,
-      profileUrl: "",
-      comment: "",
-      prEnabled: false,
-      frameFes2025Enabled: false,
-      gakuchoImage: "jump",
-      badgeImage: "none",
-      badgeTopLeft: "none",
-      badgeTopRight: "none",
-      patternImage: "none",
-      rankIcon: "none",
-      iconType: "circle",
-      qrCodeImageEnabled: true,
+      ...initialState,
       setTheme: (theme: string) => set({ theme }),
       setFont: (font: string) => set({ font }),
       setName: (name: string) => set({ name }),
@@ -88,6 +93,7 @@ export const useUserStore = create<UserStore>()(
       setIconType: (iconType: string) => set({ iconType }),
       setQrCodeImageEnabled: (qrCodeImageEnabled: boolean) =>
         set({ qrCodeImageEnabled }),
+      resetStore: () => set(initialState),
     }),
     {
       name: "user-store",

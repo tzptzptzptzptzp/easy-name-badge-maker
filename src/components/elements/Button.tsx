@@ -22,7 +22,7 @@ const getVariantClasses = (variant: ButtonVariant = "default"): string => {
     destructive:
       "bg-red-500 text-white shadow-[0_5px_0_0_#b91c1c] hover:translate-y-[3px] hover:shadow-none transition-all duration-300",
     outline:
-      "border border-main bg-transparent text-main shadow-[0_5px_0_0_var(--color-main)] hover:translate-y-[3px] hover:shadow-none transition-all duration-300",
+      "border border-main bg-white text-main shadow-[0_5px_0_0_var(--color-main)] hover:translate-y-[3px] hover:shadow-none transition-all duration-300",
     ghost: "text-main hover:bg-main/10 transition-all duration-300",
     link: "text-main underline-offset-4 hover:underline transition-all duration-300",
     none: "",
