@@ -15,6 +15,8 @@ export const PreviewQRCode = () => {
     null
   );
 
+  const qrCodeSize = scale(25);
+
   useEffect(() => {
     // デフォルト画像をData URLに変換
     const loadDefaultImageAsDataUrl = async () => {
@@ -55,15 +57,15 @@ export const PreviewQRCode = () => {
         size={scale(SIZE)}
         bgColor={"var(--theme-background-color)"}
         fgColor={"var(--theme-font-color)"}
-        level={"L"}
+        level={"Q"}
         imageSettings={
           qrCodeImageSrc
             ? {
                 src: qrCodeImageSrc,
                 x: undefined,
                 y: undefined,
-                height: scale(16),
-                width: scale(16),
+                height: qrCodeSize,
+                width: qrCodeSize,
                 opacity: 1,
                 excavate: true,
               }
