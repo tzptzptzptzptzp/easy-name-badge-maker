@@ -15,7 +15,7 @@ export const PreviewFrameFes2025 = () => {
       <img
         src="/images/frame/fes-frame.png"
         alt="リベ大お金の勉強フェス2025"
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover pointer-events-none select-none"
       />
     </div>
   );
