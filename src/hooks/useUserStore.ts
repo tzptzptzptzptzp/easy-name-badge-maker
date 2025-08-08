@@ -7,6 +7,7 @@ type User = {
   name: string;
   nameSize: string;
   activity: string;
+  activityLabel: string;
   iconUrl: string | null;
   profileUrl: string;
   comment: string;
@@ -26,6 +27,7 @@ type UserStore = User & {
   setName: (name: string) => void;
   setNameSize: (nameSize: string) => void;
   setActivity: (activity: string) => void;
+  setActivityLabel: (activityLabel: string) => void;
   setIconUrl: (iconUrl: string | null) => void;
   setProfileUrl: (profileUrl: string) => void;
   setComment: (comment: string) => void;
@@ -47,6 +49,7 @@ export const useUserStore = create<UserStore>()(
       name: "",
       nameSize: "medium",
       activity: "",
+      activityLabel: "専攻",
       iconUrl: null,
       profileUrl: "",
       comment: "",
@@ -63,6 +66,7 @@ export const useUserStore = create<UserStore>()(
       setName: (name: string) => set({ name }),
       setNameSize: (nameSize: string) => set({ nameSize }),
       setActivity: (activity: string) => set({ activity }),
+      setActivityLabel: (activityLabel: string) => set({ activityLabel }),
       setIconUrl: (iconUrl: string | null) => set({ iconUrl }),
       setProfileUrl: (profileUrl: string) => set({ profileUrl }),
       setComment: (comment: string) => set({ comment }),
