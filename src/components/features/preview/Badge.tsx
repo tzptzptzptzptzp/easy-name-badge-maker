@@ -67,7 +67,7 @@ const BadgeComponent = ({ imageValue, position }: BadgeProps) => {
 
   return (
     <div
-      className="border-[3px] border-white bg-white rounded-[5px]"
+      className="z-10 border-[3px] border-white bg-white rounded-[5px]"
       style={getPositionStyles()}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -12,6 +12,7 @@ type User = {
   profileUrl: string;
   comment: string;
   prEnabled: boolean;
+  frameFes2025Enabled: boolean;
   gakuchoImage: string;
   badgeImage: string;
   badgeTopLeft: string;
@@ -32,6 +33,7 @@ type UserStore = User & {
   setProfileUrl: (profileUrl: string) => void;
   setComment: (comment: string) => void;
   setPrEnabled: (prEnabled: boolean) => void;
+  setFrameFes2025Enabled: (frameFes2025Enabled: boolean) => void;
   setGakuchoImage: (gakuchoImage: string) => void;
   setBadgeImage: (badgeImage: string) => void;
   setBadgeTopLeft: (badgeTopLeft: string) => void;
@@ -54,6 +56,7 @@ export const useUserStore = create<UserStore>()(
       profileUrl: "",
       comment: "",
       prEnabled: false,
+      frameFes2025Enabled: false,
       gakuchoImage: "jump",
       badgeImage: "none",
       badgeTopLeft: "none",
@@ -71,6 +74,8 @@ export const useUserStore = create<UserStore>()(
       setProfileUrl: (profileUrl: string) => set({ profileUrl }),
       setComment: (comment: string) => set({ comment }),
       setPrEnabled: (prEnabled: boolean) => set({ prEnabled }),
+      setFrameFes2025Enabled: (frameFes2025Enabled: boolean) =>
+        set({ frameFes2025Enabled }),
       setGakuchoImage: (gakuchoImage: string) => set({ gakuchoImage }),
       setBadgeImage: (badgeImage: string) => set({ badgeImage }),
       setBadgeTopLeft: (badgeTopLeft: string) => set({ badgeTopLeft }),

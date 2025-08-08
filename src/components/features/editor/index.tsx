@@ -16,6 +16,7 @@ import { EditorBadgeSelect } from "./BadgeSelect";
 import { EditorPatternSelect } from "./PatternSelect";
 import { EditorRankRadio } from "./RankRadio";
 import { EditorIconTypeSelect } from "./IconTypeSelect";
+import { EditorFrameFes2025Radio } from "./FrameFes2025Radio";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -31,6 +32,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
     >
       <EditorHeader />
       <div className="flex flex-col gap-2 overflow-y-scroll h-full p-4">
+        <EditorFrameFes2025Radio />
         <EditorThemeSelect />
         <EditorPatternSelect />
         <EditorFontSelect />
