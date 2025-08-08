@@ -10,7 +10,7 @@ const SIZE = 72;
 
 export const PreviewQRCode = () => {
   const { scale } = useConfig();
-  const { iconUrl, profileUrl } = useUserStore();
+  const { iconUrl, profileUrl, qrCodeImageEnabled } = useUserStore();
   const [defaultImageDataUrl, setDefaultImageDataUrl] = useState<string | null>(
     null
   );
@@ -59,7 +59,7 @@ export const PreviewQRCode = () => {
         fgColor={"var(--theme-font-color)"}
         level={"Q"}
         imageSettings={
-          qrCodeImageSrc
+          qrCodeImageSrc && qrCodeImageEnabled
             ? {
                 src: qrCodeImageSrc,
                 x: undefined,

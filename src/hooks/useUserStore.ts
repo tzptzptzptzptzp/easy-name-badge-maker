@@ -20,6 +20,7 @@ type User = {
   patternImage: string;
   rankIcon: string;
   iconType: string;
+  qrCodeImageEnabled: boolean;
 };
 
 type UserStore = User & {
@@ -41,6 +42,7 @@ type UserStore = User & {
   setPatternImage: (patternImage: string) => void;
   setRankIcon: (rankIcon: string) => void;
   setIconType: (iconType: string) => void;
+  setQrCodeImageEnabled: (qrCodeImageEnabled: boolean) => void;
 };
 
 export const useUserStore = create<UserStore>()(
@@ -64,6 +66,7 @@ export const useUserStore = create<UserStore>()(
       patternImage: "none",
       rankIcon: "none",
       iconType: "circle",
+      qrCodeImageEnabled: true,
       setTheme: (theme: string) => set({ theme }),
       setFont: (font: string) => set({ font }),
       setName: (name: string) => set({ name }),
@@ -83,6 +86,8 @@ export const useUserStore = create<UserStore>()(
       setPatternImage: (patternImage: string) => set({ patternImage }),
       setRankIcon: (rankIcon: string) => set({ rankIcon }),
       setIconType: (iconType: string) => set({ iconType }),
+      setQrCodeImageEnabled: (qrCodeImageEnabled: boolean) =>
+        set({ qrCodeImageEnabled }),
     }),
     {
       name: "user-store",

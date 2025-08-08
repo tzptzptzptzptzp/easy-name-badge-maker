@@ -17,6 +17,7 @@ import { EditorPatternSelect } from "./PatternSelect";
 import { EditorRankRadio } from "./RankRadio";
 import { EditorIconTypeSelect } from "./IconTypeSelect";
 import { EditorFrameFes2025Radio } from "./FrameFes2025Radio";
+import { EditorQRCodeImageRadio } from "./QRCodeImageRadio";
 
 interface EditorProps {
   previewRef: RefObject<HTMLDivElement | null>;
@@ -44,6 +45,7 @@ export const Editor = ({ previewRef }: EditorProps) => {
         <EditorBadgeSelect />
         <EditorActivityInput />
         <EditorProfileUrlButton />
+        <EditorQRCodeImageRadio />
         <EditorCommentInput />
         <EditorGakuchoSelect />
         <EditorPrRadio />
