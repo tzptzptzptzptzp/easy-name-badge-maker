@@ -15,6 +15,8 @@ export const useStoreHydration = () => {
       const urlStoreHydrated = useUrlStore.persist.hasHydrated();
 
       if (userStoreHydrated && urlStoreHydrated) {
+        // ハイドレーション完了後に期限切れチェックを実行
+        useUrlStore.getState().checkAndResetIfExpired();
         setIsHydrated(true);
       }
     };
