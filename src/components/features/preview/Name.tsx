@@ -81,7 +81,7 @@ export const PreviewName = () => {
           </p>
         </div>
       )}
-      <div className="flex items-center gap-2 overflow-hidden">
+      <div className="flex items-center gap-2 overflow-x-hidden">
         <p
           className="whitespace-nowrap"
           style={{

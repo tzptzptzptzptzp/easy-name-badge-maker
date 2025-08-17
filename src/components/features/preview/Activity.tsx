@@ -29,7 +29,7 @@ export const PreviewActivity = () => {
           {activityLabel}
         </p>
       </div>
-      <div className="overflow-hidden">
+      <div className="overflow-x-hidden">
         <p
           className="whitespace-nowrap leading-none"
           style={{
