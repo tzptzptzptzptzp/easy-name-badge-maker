@@ -6,9 +6,13 @@ export const PreviewMakerLogo = () => {
 
   return (
     <div
-      className="absolute left-[5.5%]"
+      className="absolute left-[5.5%] z-0"
       style={{ top: scale(481), width: scale(148) }}
     >
+      <div
+        className="absolute inset-0 -z-10 w-full h-full opacity-80"
+        style={{ backgroundColor: "var(--theme-background-color)" }}
+      />
       <svg
         width="148"
         height="22"
