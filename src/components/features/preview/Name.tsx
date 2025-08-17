@@ -66,7 +66,7 @@ export const PreviewName = () => {
       }}
     >
       <div
-        className="absolute inset-0 -z-10 w-full h-full opacity-90"
+        className="absolute inset-0 -z-10 w-full h-full opacity-80"
         style={{ backgroundColor: "var(--theme-background-color)" }}
       />
       {sizeConfig.showLabel && (
@@ -81,7 +81,7 @@ export const PreviewName = () => {
           </p>
         </div>
       )}
-      <div className="flex items-center gap-2 overflow-hidden">
+      <div className="flex items-center gap-2 overflow-x-hidden">
         <p
           className="whitespace-nowrap"
           style={{

@@ -15,7 +15,7 @@ export const PreviewComment = () => {
       }}
     >
       <div
-        className="absolute inset-0 -z-10 w-full h-full opacity-90"
+        className="absolute inset-0 -z-10 w-full h-full opacity-80"
         style={{ backgroundColor: "var(--theme-background-color)" }}
       />
       <p

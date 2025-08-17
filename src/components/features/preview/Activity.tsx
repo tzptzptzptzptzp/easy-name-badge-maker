@@ -16,7 +16,7 @@ export const PreviewActivity = () => {
       }}
     >
       <div
-        className="absolute inset-0 -z-10 w-full h-full opacity-90"
+        className="absolute inset-0 -z-10 w-full h-full opacity-80"
         style={{ backgroundColor: "var(--theme-background-color)" }}
       />
       <div>
@@ -29,7 +29,7 @@ export const PreviewActivity = () => {
           {activityLabel}
         </p>
       </div>
-      <div className="overflow-hidden">
+      <div className="overflow-x-hidden">
         <p
           className="whitespace-nowrap leading-none"
           style={{
